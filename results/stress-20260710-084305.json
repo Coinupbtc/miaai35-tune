@@ -1,0 +1,208 @@
+{
+  "timestamp": "2026-07-10T13:43:05.528312Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 60.17,
+    "ram_available_gb": 70.49,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "1163274",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42542
+      }
+    ],
+    "gpu_used_mib_sum": 42983,
+    "llama_gpu_mib": 42542,
+    "gpu_util_pct": "5",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 5.1
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 62.05,
+    "ram_available_gb": 68.61,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "1163274",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42542
+      }
+    ],
+    "gpu_used_mib_sum": 42983,
+    "llama_gpu_mib": 42542,
+    "gpu_util_pct": "92",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 6.8
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 96.43,
+      "ttft": 0.259,
+      "total": 0.301,
+      "toks": 4,
+      "error": null,
+      "vram": 42542,
+      "ram": 60.24,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 25.24,
+      "ttft": 0.194,
+      "total": 0.274,
+      "toks": 2,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.25,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 75.19,
+      "ttft": 0.182,
+      "total": 0.289,
+      "toks": 8,
+      "error": null,
+      "vram": 42542,
+      "ram": 60.53,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 69.1,
+      "ttft": 0.187,
+      "total": 1.113,
+      "toks": 64,
+      "error": null,
+      "vram": 42542,
+      "ram": 60.74,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: \n  - Best: $O(n \\log n)$\n  - Average: $O(n \\log n)$\n  - Worst: $O(n \\log"
+    },
+    {
+      "tag": "short_5",
+      "tps": 28.87,
+      "ttft": 0.185,
+      "total": 0.255,
+      "toks": 2,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.71,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 84.09,
+      "ttft": 0.345,
+      "total": 1.296,
+      "toks": 80,
+      "error": null,
+      "vram": 42542,
+      "ram": 60.89,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 83.47,
+      "ttft": 0.193,
+      "total": 0.408,
+      "toks": 18,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.06,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 67.75,
+      "ttft": 0.189,
+      "total": 0.573,
+      "toks": 26,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.22,
+      "preview": "```bash\nwc -l /tmp/*.log | tail -n 1 | awk '{print $1}'\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 59.91,
+      "ttft": 0.229,
+      "total": 0.897,
+      "toks": 40,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.37,
+      "preview": "Yes, because if every Bloop is a Razzie and every Razzie is a Lazzie, then by transitivity, every Bloop must also be a Lazzie."
+    },
+    {
+      "tag": "reason_2",
+      "tps": 73.84,
+      "ttft": 0.221,
+      "total": 4.961,
+      "toks": 350,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.54,
+      "preview": "Let's break this down step-by-step using algebra to ensure accuracy.\n\n### Step 1: Define Variables\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the ball.\n\n### Step 2: Set Up Equations\nFrom t"
+    },
+    {
+      "tag": "reason_3",
+      "tps": 65.95,
+      "ttft": 0.215,
+      "total": 1.823,
+      "toks": 106,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.67,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up, then turn it off.\n2. Immediately turn on the second switch and leave it on, while keeping the third switch"
+    },
+    {
+      "tag": "long",
+      "tps": 72.12,
+      "ttft": 1.419,
+      "total": 1.779,
+      "toks": 26,
+      "error": null,
+      "vram": 42542,
+      "ram": 61.71,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 61.42,
+      "ttft": 0.276,
+      "total": 1.742,
+      "toks": 90,
+      "error": null,
+      "vram": 42542,
+      "ram": 62.79,
+      "preview": "The bug is an `IndexError` because Python lists are zero-indexed, so valid indices for a 3-element list are 0, 1, and 2.\nThe fix is to change the index from 3 to 2 to access the last element, or use `"
+    },
+    {
+      "tag": "agent",
+      "tps": 60.63,
+      "ttft": 0.246,
+      "total": 3.447,
+      "toks": 194,
+      "error": null,
+      "vram": 42542,
+      "ram": 62.02,
+      "preview": "STEP1: Edit the service unit file (e.g., `~/.config/systemd/user/llama-miaai35.service`) to include a `[Service]` section with `ExecStartPre` for a pre-start health check and `ExecStopPost` for a post"
+    }
+  ],
+  "tps_min": 25.24,
+  "tps_max": 96.43,
+  "tps_avg": 66.0,
+  "errors": 0,
+  "vram_delta_mib": 0
+}

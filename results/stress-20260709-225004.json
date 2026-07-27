@@ -1,0 +1,238 @@
+{
+  "timestamp": "2026-07-10T03:50:04.146160Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 67.66,
+    "ram_available_gb": 63.0,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3151
+      },
+      {
+        "pid": "238151",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "316563",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42532
+      }
+    ],
+    "gpu_used_mib_sum": 49658,
+    "llama_gpu_mib": 42532,
+    "gpu_util_pct": "92",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 3.36
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 69.61,
+    "ram_available_gb": 61.06,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3151
+      },
+      {
+        "pid": "238151",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "316563",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42542
+      }
+    ],
+    "gpu_used_mib_sum": 49668,
+    "llama_gpu_mib": 42542,
+    "gpu_util_pct": "93",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 5.42
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 76.13,
+      "ttft": 0.222,
+      "total": 0.274,
+      "toks": 4,
+      "error": null,
+      "vram": 42532,
+      "ram": 67.84,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 20.75,
+      "ttft": 0.216,
+      "total": 0.313,
+      "toks": 2,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.0,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 29.27,
+      "ttft": 0.204,
+      "total": 0.477,
+      "toks": 8,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.14,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 55.74,
+      "ttft": 0.213,
+      "total": 1.361,
+      "toks": 64,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.25,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: \n  - Best: $O(n \\log n)$\n  - Average: $O(n \\log n)$\n  - Worst: $O(n \\log"
+    },
+    {
+      "tag": "short_5",
+      "tps": 27.83,
+      "ttft": 0.213,
+      "total": 0.285,
+      "toks": 2,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.09,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 64.71,
+      "ttft": 0.225,
+      "total": 1.461,
+      "toks": 80,
+      "error": null,
+      "vram": 42532,
+      "ram": 69.19,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 69.2,
+      "ttft": 0.235,
+      "total": 0.495,
+      "toks": 18,
+      "error": null,
+      "vram": 42532,
+      "ram": 69.33,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 54.75,
+      "ttft": 0.233,
+      "total": 0.471,
+      "toks": 13,
+      "error": null,
+      "vram": 42532,
+      "ram": 69.45,
+      "preview": "```bash\nwc -l /tmp/*.log\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 49.1,
+      "ttft": 0.273,
+      "total": 1.21,
+      "toks": 46,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.62,
+      "preview": "Yes, because the transitive property of logic dictates that if one group is entirely contained within a second group, and that second group is entirely contained within a third, the first group must a"
+    },
+    {
+      "tag": "reason_2",
+      "tps": 61.71,
+      "ttft": 0.245,
+      "total": 5.657,
+      "toks": 334,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.77,
+      "preview": "To find the cost of the ball, we can set up a simple system of equations.\n\n**1. Define the variables:**\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the ball.\n\n**2. Translate the statements "
+    },
+    {
+      "tag": "reason_3",
+      "tps": 48.8,
+      "ttft": 0.231,
+      "total": 2.403,
+      "toks": 106,
+      "error": null,
+      "vram": 42532,
+      "ram": 68.92,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up, then turn it off.\n2. Immediately turn on the second switch and leave it on, while keeping the third switch"
+    },
+    {
+      "tag": "long",
+      "tps": 57.03,
+      "ttft": 6.616,
+      "total": 7.072,
+      "toks": 26,
+      "error": null,
+      "vram": 42542,
+      "ram": 69.16,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 48.66,
+      "ttft": 0.298,
+      "total": 2.066,
+      "toks": 86,
+      "error": null,
+      "vram": 42542,
+      "ram": 69.45,
+      "preview": "The bug is an `IndexError` because Python lists are zero-indexed, so valid indices for a 3-element list are 0, 1, and 2.\nThe fix is to change the index from 3 to 2 to access the last element, or use `"
+    },
+    {
+      "tag": "agent",
+      "tps": 44.38,
+      "ttft": 0.277,
+      "total": 4.467,
+      "toks": 186,
+      "error": null,
+      "vram": 42542,
+      "ram": 69.57,
+      "preview": "STEP1: Edit the service unit file (e.g., `~/.config/systemd/user/llama-miaai35.service`) to include a `[Service]` section with `ExecStartPre` for a pre-start health check and `ExecStopPost` for a post"
+    }
+  ],
+  "tps_min": 20.75,
+  "tps_max": 76.13,
+  "tps_avg": 50.58,
+  "errors": 0,
+  "vram_delta_mib": 10
+}

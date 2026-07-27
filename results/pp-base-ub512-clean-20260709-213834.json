@@ -1,0 +1,128 @@
+{
+  "tag": "base-ub512-clean",
+  "ts": "2026-07-09T21:37:06.193164",
+  "vram_mib": 39492,
+  "tests": {
+    "pp_8k": {
+      "runs": [
+        {
+          "wall_s": 5.449,
+          "prompt_n": 6049,
+          "pp_tps": 1283.8,
+          "ttft_s": 4.712,
+          "gen_n": 24,
+          "gen_tps": 36.63,
+          "content": "The text is a repetitive, synthetic log entry describing a recurring system event involving a window endpoint and watchdog pressure profiles.",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 5.225,
+          "prompt_n": 6402,
+          "pp_tps": 1337.2,
+          "ttft_s": 4.788,
+          "gen_n": 13,
+          "gen_tps": 38.64,
+          "content": "The text is a repetitive string of nonsensical words.",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 5.074,
+          "prompt_n": 6050,
+          "pp_tps": 1367.5,
+          "ttft_s": 4.424,
+          "gen_n": 20,
+          "gen_tps": 36.7,
+          "content": "The text is a repetitive log entry describing an agent restart and elevated watchdog pressure profiles during maintenance.",
+          "busy_slots_before": 0
+        }
+      ],
+      "median": {
+        "pp_tps": 1337.2,
+        "ttft_s": 4.712,
+        "gen_tps": 36.7,
+        "wall_s": 5.225
+      }
+    },
+    "pp_24k": {
+      "runs": [
+        {
+          "wall_s": 10.302,
+          "prompt_n": 12516,
+          "pp_tps": 1320.8,
+          "ttft_s": 9.476,
+          "gen_n": 23,
+          "gen_tps": 35.59,
+          "content": "The text is a repetitive synthetic log entry describing a recurring system event involving a window endpoint and watchdog pressure profiles.",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 11.281,
+          "prompt_n": 13222,
+          "pp_tps": 1237.9,
+          "ttft_s": 10.681,
+          "gen_n": 13,
+          "gen_tps": 34.96,
+          "content": "The text is a repetitive string of nonsensical words.",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 11.427,
+          "prompt_n": 12516,
+          "pp_tps": 1274.6,
+          "ttft_s": 9.82,
+          "gen_n": 19,
+          "gen_tps": 33.71,
+          "content": "The text is a repetitive synthetic log entry describing an agent restart and elevated watchdog pressure profiles.",
+          "busy_slots_before": 0
+        }
+      ],
+      "median": {
+        "pp_tps": 1274.6,
+        "ttft_s": 9.82,
+        "gen_tps": 34.96,
+        "wall_s": 11.281
+      }
+    },
+    "coding": {
+      "runs": [
+        {
+          "wall_s": 12.678,
+          "prompt_n": 52,
+          "pp_tps": 295.2,
+          "ttft_s": 0.176,
+          "gen_n": 455,
+          "gen_tps": 36.82,
+          "content": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Merge overlapping intervals.\n\n    Given a list of intervals where each interval is [start, end],\n    merge all overlapping intervals and return a list of non-overlapping\n    intervals that cover all the input intervals.\n\n    Args:\n        intervals: A list of [start, end] intervals.\n\n    Returns:\n        A li",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 12.977,
+          "prompt_n": 4,
+          "pp_tps": 105.2,
+          "ttft_s": 0.038,
+          "gen_n": 457,
+          "gen_tps": 35.49,
+          "content": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Merge overlapping intervals.\n\n    Given a list of intervals where each interval is [start, end],\n    merge all overlapping intervals and return a list of non-overlapping\n    intervals that cover all the input intervals.\n\n    Args:\n        intervals: A list of [start, end] intervals.\n\n    Returns:\n        A li",
+          "busy_slots_before": 0
+        },
+        {
+          "wall_s": 13.098,
+          "prompt_n": 4,
+          "pp_tps": 105.5,
+          "ttft_s": 0.038,
+          "gen_n": 471,
+          "gen_tps": 36.23,
+          "content": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Merge overlapping intervals.\n\n    Given a list of intervals where each interval is [start, end],\n    merge all overlapping intervals and return the resulting list of\n    non-overlapping intervals that cover all the input intervals.\n\n    Args:\n        intervals: A list of [start, end] intervals.\n\n    Returns:\n",
+          "busy_slots_before": 0
+        }
+      ],
+      "median": {
+        "pp_tps": 105.5,
+        "ttft_s": 0.038,
+        "gen_tps": 36.23,
+        "wall_s": 12.977
+      }
+    }
+  },
+  "vram_mib_after": 39542
+}

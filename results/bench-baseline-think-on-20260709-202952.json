@@ -1,0 +1,226 @@
+{
+  "tag": "baseline-think-on",
+  "timestamp": "2026-07-10T01:29:52.914052+00:00",
+  "base_url": "http://127.0.0.1:8889",
+  "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+  "temperature": 0.1,
+  "enable_thinking": true,
+  "mem_before": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 69.03,
+    "ram_available_gb": 61.63,
+    "gpu_apps": [
+      {
+        "pid": "2555",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 40554
+      },
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      }
+    ],
+    "gpu_used_mib_sum": 44529,
+    "llama_gpu_mib": 40554,
+    "gpu_util_pct": "94",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 9.14
+  },
+  "mem_after": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 71.42,
+    "ram_available_gb": 59.24,
+    "gpu_apps": [
+      {
+        "pid": "2555",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 40554
+      },
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      }
+    ],
+    "gpu_used_mib_sum": 44529,
+    "llama_gpu_mib": 40554,
+    "gpu_util_pct": "24",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 11.4
+  },
+  "results": [
+    {
+      "test": "short",
+      "label": "Short prompt",
+      "enable_thinking": true,
+      "tokens_per_sec": 21.01,
+      "ttft_s": 0.255,
+      "total_s": 46.466,
+      "completion_tokens": 971,
+      "prompt_tokens": 2,
+      "prompt_tokens_per_sec": 33.06,
+      "vram_mib": 40554,
+      "ram_used_gb": 69.42,
+      "llama_rss_gb": 9.53,
+      "gpu_util_pct": "95",
+      "cpu_use_pct": 10.0,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:correct product 408",
+        "pass:capital Tokyo"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "17 multiplied by 24 equals 408, and the capital of Japan is Tokyo.",
+      "reasoning_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - Question 1: \"what is 17 * 24?\"\n   - Question 2: \"Then name the capital of Japan.\"\n   - Constraint: \"Reply in exactly one sentence\"\n\n2.  **Calculate 17 * 24:**\n   - 17 * 24 = 17 * (20 + 4) = 340 + 68 = 408\n   - Double-check: 10*24=240, 7*24",
+      "timings": {
+        "cache_n": 31,
+        "prompt_n": 2,
+        "prompt_ms": 60.492,
+        "prompt_per_token_ms": 30.246,
+        "prompt_per_second": 33.06222310388151,
+        "predicted_n": 971,
+        "predicted_ms": 46211.808,
+        "predicted_per_token_ms": 47.59197528321318,
+        "predicted_per_second": 21.011945691456177
+      }
+    },
+    {
+      "test": "coding",
+      "label": "Coding prompt",
+      "enable_thinking": true,
+      "tokens_per_sec": 20.99,
+      "ttft_s": 0.46,
+      "total_s": 98.045,
+      "completion_tokens": 2048,
+      "prompt_tokens": 68,
+      "prompt_tokens_per_sec": 268.23,
+      "vram_mib": 40554,
+      "ram_used_gb": 69.76,
+      "llama_rss_gb": 9.87,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 10.1,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:defines merge_intervals",
+        "pass:sorts intervals",
+        "pass:includes asserts",
+        "pass:type hints"
+      ],
+      "stability": "pass",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "",
+      "reasoning_preview": "Here's a thinking process:\n\n1.  **Understand the User Request:**\n   - **Function Signature:** `def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:`\n   - **Task:** Merge overlapping intervals.\n   - **Requirements:** \n     - Include type hints (already provided in signature)\n     - Inc",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 68,
+        "prompt_ms": 253.512,
+        "prompt_per_token_ms": 3.7281176470588235,
+        "prompt_per_second": 268.2318785698507,
+        "predicted_n": 2048,
+        "predicted_ms": 97584.719,
+        "predicted_per_token_ms": 47.64878857421875,
+        "predicted_per_second": 20.986892425237194
+      }
+    },
+    {
+      "test": "reasoning",
+      "label": "Reasoning prompt",
+      "enable_thinking": true,
+      "tokens_per_sec": 22.74,
+      "ttft_s": 0.588,
+      "total_s": 68.979,
+      "completion_tokens": 1555,
+      "prompt_tokens": 61,
+      "prompt_tokens_per_sec": 212.21,
+      "vram_mib": 40554,
+      "ram_used_gb": 70.31,
+      "llama_rss_gb": 10.3,
+      "gpu_util_pct": "93",
+      "cpu_use_pct": 15.3,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:23 chickens",
+        "pass:12 rabbits",
+        "pass:uses equations"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "Let $c$ = number of chickens  \nLet $r$ = number of rabbits  \n\n**Step 1: Set up the equations**  \nEach animal has 1 head:  \n$c + r = 35$  (Equation 1)  \n\nChickens have 2 legs and rabbits have 4 legs:  \n$2c + 4r = 94$  (Equation 2)  \n\n**Step 2: Solve Equation 1 for one variable**  \n$c = 35 - r$  \n\n**Step 3: Substitute into Equation 2**  \n$2(35 - r) + 4r = 94$  \n\n**Step 4: Simplify and solve for $r$**  \n$70 - 2r + 4r = 94$  \n$70 + 2r = 94$  \n$2r = 94 - 70$  \n$2r = 24$  \n$r = 12$  \n\n**Step 5: Solve ",
+      "reasoning_preview": "Here's a thinking process:\n\n1.  **Understand the User Input:**\n   - Problem: A farmer has chickens and rabbits.\n   - Total heads: 35\n   - Total legs: 94\n   - Task: Find the number of chickens and rabbits.\n   - Requirements: Show equations, solve step by step, end with a specific format: `CHICKENS=<n",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 61,
+        "prompt_ms": 287.445,
+        "prompt_per_token_ms": 4.712213114754098,
+        "prompt_per_second": 212.2145106020282,
+        "predicted_n": 1555,
+        "predicted_ms": 68390.566,
+        "predicted_per_token_ms": 43.98107138263666,
+        "predicted_per_second": 22.73705411357467
+      }
+    },
+    {
+      "test": "long_context",
+      "label": "Long-context prompt",
+      "enable_thinking": true,
+      "tokens_per_sec": 27.31,
+      "ttft_s": 2.034,
+      "total_s": 21.439,
+      "completion_tokens": 530,
+      "prompt_tokens": 516,
+      "prompt_tokens_per_sec": 881.44,
+      "vram_mib": 40554,
+      "ram_used_gb": 71.36,
+      "llama_rss_gb": 11.4,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 20.0,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:recalls ALPHA token",
+        "pass:recalls BETA token",
+        "pass:recalls number 42"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42",
+      "reasoning_preview": "The user wants me to extract three specific values from the provided text:\n1. SECRET_A\n2. SECRET_B\n3. ANSWER_N\n\nThe prompt says:\n\"At the start: SECRET_A=ALPHA-TOKEN-7F3C.\"\n\"In the middle marker: SECRET_B=BETA-TOKEN-9K2M and ANSWER_N=42.\"\n\"Document: [lots of padding text] MIDDLE_MARKER: SECRET_B=BETA",
+      "timings": {
+        "cache_n": 8960,
+        "prompt_n": 516,
+        "prompt_ms": 585.406,
+        "prompt_per_token_ms": 1.1345077519379845,
+        "prompt_per_second": 881.4395479376707,
+        "predicted_n": 530,
+        "predicted_ms": 19404.71,
+        "predicted_per_token_ms": 36.61266037735849,
+        "predicted_per_second": 27.312956493552342
+      }
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "tag": "baseline-original",
+  "timestamp": "2026-07-10T01:23:55.814536+00:00",
+  "base_url": "http://127.0.0.1:8889",
+  "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+  "temperature": 0.1,
+  "mem_before": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 67.9,
+    "ram_available_gb": 62.77,
+    "gpu_apps": [
+      {
+        "pid": "2555",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 40552
+      },
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      }
+    ],
+    "gpu_used_mib_sum": 44527,
+    "llama_gpu_mib": 40552,
+    "gpu_util_pct": "8",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 8.14
+  },
+  "mem_after": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 68.04,
+    "ram_available_gb": 62.63,
+    "gpu_apps": [
+      {
+        "pid": "2555",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 40554
+      },
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      }
+    ],
+    "gpu_used_mib_sum": 44529,
+    "llama_gpu_mib": 40554,
+    "gpu_util_pct": "5",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 8.26
+  },
+  "results": [
+    {
+      "test": "short",
+      "label": "Short prompt",
+      "tokens_per_sec": 43.27,
+      "ttft_s": 1.209,
+      "total_s": 4.167,
+      "completion_tokens": 128,
+      "prompt_tokens": 33,
+      "prompt_tokens_per_sec": 226.22,
+      "vram_mib": 40552,
+      "ram_used_gb": 71.44,
+      "llama_rss_gb": 11.57,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 11.1,
+      "quality_score": 0.0,
+      "quality_notes": [
+        "empty response"
+      ],
+      "stability": "fail",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 33,
+        "prompt_ms": 145.874,
+        "prompt_per_token_ms": 4.420424242424242,
+        "prompt_per_second": 226.2226304893264,
+        "predicted_n": 128,
+        "predicted_ms": 2958.407,
+        "predicted_per_token_ms": 23.1125546875,
+        "predicted_per_second": 43.26652823631096
+      }
+    },
+    {
+      "test": "coding",
+      "label": "Coding prompt",
+      "tokens_per_sec": 41.21,
+      "ttft_s": 0.499,
+      "total_s": 12.923,
+      "completion_tokens": 512,
+      "prompt_tokens": 68,
+      "prompt_tokens_per_sec": 152.87,
+      "vram_mib": 40552,
+      "ram_used_gb": 70.11,
+      "llama_rss_gb": 9.9,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 12.9,
+      "quality_score": 0.0,
+      "quality_notes": [
+        "empty response"
+      ],
+      "stability": "fail",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 68,
+        "prompt_ms": 444.811,
+        "prompt_per_token_ms": 6.541338235294117,
+        "prompt_per_second": 152.873917236759,
+        "predicted_n": 512,
+        "predicted_ms": 12423.349,
+        "predicted_per_token_ms": 24.264353515625,
+        "predicted_per_second": 41.212719694182304
+      }
+    },
+    {
+      "test": "reasoning",
+      "label": "Reasoning prompt",
+      "tokens_per_sec": 46.17,
+      "ttft_s": 0.228,
+      "total_s": 11.319,
+      "completion_tokens": 512,
+      "prompt_tokens": 61,
+      "prompt_tokens_per_sec": 351.19,
+      "vram_mib": 40552,
+      "ram_used_gb": 70.02,
+      "llama_rss_gb": 9.98,
+      "gpu_util_pct": "95",
+      "cpu_use_pct": 10.5,
+      "quality_score": 0.0,
+      "quality_notes": [
+        "empty response"
+      ],
+      "stability": "fail",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 61,
+        "prompt_ms": 173.695,
+        "prompt_per_token_ms": 2.8474590163934423,
+        "prompt_per_second": 351.1903048446991,
+        "predicted_n": 512,
+        "predicted_ms": 11090.364,
+        "predicted_per_token_ms": 21.6608671875,
+        "predicted_per_second": 46.166203381602266
+      }
+    },
+    {
+      "test": "long_context",
+      "label": "Long-context prompt",
+      "tokens_per_sec": 45.47,
+      "ttft_s": 6.42,
+      "total_s": 12.05,
+      "completion_tokens": 256,
+      "prompt_tokens": 9476,
+      "prompt_tokens_per_sec": 1495.32,
+      "vram_mib": 40554,
+      "ram_used_gb": 68.06,
+      "llama_rss_gb": 8.26,
+      "gpu_util_pct": "95",
+      "cpu_use_pct": 10.2,
+      "quality_score": 0.0,
+      "quality_notes": [
+        "empty response"
+      ],
+      "stability": "fail",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 9476,
+        "prompt_ms": 6337.118,
+        "prompt_per_token_ms": 0.6687545377796539,
+        "prompt_per_second": 1495.316956383012,
+        "predicted_n": 256,
+        "predicted_ms": 5630.228,
+        "predicted_per_token_ms": 21.993078125,
+        "predicted_per_second": 45.46885135024727
+      }
+    }
+  ]
+}

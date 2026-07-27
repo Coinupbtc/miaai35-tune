@@ -1,0 +1,37 @@
+[Unit]
+Description=MiaAI-Lab Qwen3.6-35B MAX SPEED (ctx32k fa kv-q8 parallel1 text-only)
+Documentation=file://$HOME/models/dgx_bundle/miaai35-tune/REPORT.md
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+OnFailure=llama-miaai35-alert.service
+
+[Service]
+Type=exec
+# Measured: ~35-38 t/s decode, ~37 GB GPU, best long-prompt TTFT among stacks.
+# Client: chat_template_kwargs enable_thinking=false (required for wall-clock speed).
+ExecStart=$HOME/llama.cpp/build/bin/llama-server \
+  --model $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --ctx-size 32768 \
+  --parallel 1 \
+  --flash-attn on \
+  --cache-type-k q8_0 \
+  --cache-type-v q8_0 \
+  --batch-size 4096 \
+  --ubatch-size 1024 \
+  --host 0.0.0.0 \
+  --port 8889 \
+  --temperature 0.4 \
+  --top-p 0.9 \
+  --top-k 20 \
+  --min-p 0.0 \
+  --presence-penalty 0.0 \
+  --repeat-penalty 1.05 \
+  --chat-template-kwargs '{"preserve_thinking":false}'
+Restart=always
+RestartSec=5
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

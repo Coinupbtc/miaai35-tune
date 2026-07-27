@@ -1,0 +1,139 @@
+{
+  "tag": "v4-baseline-r2",
+  "thinking": "off",
+  "score": 94.1,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "1 GB"
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": "The provided digest does not list a `mistral-download` service."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "found 4/4: {'gateway-light': True, 'backup-mirror': True, 'edge-node': True, 'sleep-research': True}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14/14 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "s for $k$ and $j$.\n\nThus, Job A and Job B never run at the same time.\n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": " exceeds the available memory (67.3 GB). Therefore, it does not fit.\n\nANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "{300 \\text{ seconds}}{60 \\text{ seconds/minute}} = 5 \\text{ minutes}$\n\nANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'Disk usage on / has reached 96%. Immediate action required to prevent system issues.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      55.398081379781544,
+      54.701602756960774,
+      32.47227679368739,
+      36.4126278993555
+    ],
+    "B_trap": [
+      54.334636157164745
+    ],
+    "C_enumeration": [
+      68.86427883605596
+    ],
+    "D_brief": [
+      62.47645300350815
+    ],
+    "E_coding": [
+      86.5542540360319,
+      82.1099129530986,
+      85.886475364896
+    ],
+    "F_reasoning": [
+      79.55989434938154,
+      80.84635220699353,
+      81.49891033754206
+    ],
+    "G_toolcall": [
+      74.03219727561515
+    ]
+  }
+}

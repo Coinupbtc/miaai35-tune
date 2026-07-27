@@ -1,0 +1,139 @@
+{
+  "tag": "v4-baseline",
+  "thinking": "off",
+  "score": 88.2,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": false,
+      "detail": "1 GB"
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "The status of the `mistral-download` service is not mentioned in the provided digest."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "found 4/4: {'gateway-light': True, 'backup-mirror': True, 'edge-node': True, 'sleep-research': True}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14/14 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"/tmp/tmp_vsipl0_.py\", line 25, in <module>\n    assert max_idle_gap([100,110,1400])==860\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": " $j$.\n\nThis confirms that Job A and Job B never run at the same time.\n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": " exceeds the available memory (67.3 GB). Therefore, it does not fit.\n\nANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "{300 \\text{ seconds}}{60 \\text{ seconds/minute}} = 5 \\text{ minutes}$\n\nANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'Disk usage on / has reached 96%. Immediate action required to prevent service disruption.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      43.00427892575311,
+      48.78842088144413,
+      27.964987835230293,
+      32.50623036081915
+    ],
+    "B_trap": [
+      59.20515521098848
+    ],
+    "C_enumeration": [
+      62.37310970494401
+    ],
+    "D_brief": [
+      56.59672511047511
+    ],
+    "E_coding": [
+      81.23525932510285,
+      78.698165684637,
+      81.36287091031136
+    ],
+    "F_reasoning": [
+      76.50497638969337,
+      78.01262829420513,
+      76.33151885738125
+    ],
+    "G_toolcall": [
+      66.59280918738612
+    ]
+  }
+}

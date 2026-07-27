@@ -1,0 +1,30 @@
+[Unit]
+Description=MiaAI-Lab Qwen3.6-35B-A3B GGUF (PASS5: no mmproj text-only + fa on)
+Documentation=https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+OnFailure=llama-miaai35-alert.service
+
+[Service]
+Type=exec
+ExecStart=$HOME/llama.cpp/build/bin/llama-server \
+  --model $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --ctx-size 131072 \
+  --flash-attn on \
+  --host 0.0.0.0 \
+  --port 8889 \
+  --temperature 0.6 \
+  --top-p 0.95 \
+  --top-k 20 \
+  --min-p 0.0 \
+  --presence-penalty 0.0 \
+  --repeat-penalty 1.0 \
+  --chat-template-kwargs '{"preserve_thinking":true}'
+Restart=always
+RestartSec=5
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,228 @@
+{
+  "timestamp": "2026-07-11T20:24:55.771160Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 106.26,
+    "ram_available_gb": 24.41,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "3445184",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 42538
+      },
+      {
+        "pid": "3583514",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 26436
+      },
+      {
+        "pid": "3601028",
+        "name": "$HOME/projects/lane-scan/.venv/bin/python",
+        "used_mib": 3153
+      }
+    ],
+    "gpu_used_mib_sum": 72568,
+    "llama_gpu_mib": 26436,
+    "gpu_util_pct": "5",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 18.67
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 106.58,
+    "ram_available_gb": 24.08,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "3445184",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 42538
+      },
+      {
+        "pid": "3583514",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 26436
+      },
+      {
+        "pid": "3601028",
+        "name": "$HOME/projects/lane-scan/.venv/bin/python",
+        "used_mib": 3153
+      }
+    ],
+    "gpu_used_mib_sum": 72568,
+    "llama_gpu_mib": 26436,
+    "gpu_util_pct": "88",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 18.95
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 75.95,
+      "ttft": 0.113,
+      "total": 0.166,
+      "toks": 4,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.41,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 33.66,
+      "ttft": 0.089,
+      "total": 0.149,
+      "toks": 2,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.13,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 75.24,
+      "ttft": 0.102,
+      "total": 0.209,
+      "toks": 8,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.3,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 79.52,
+      "ttft": 0.163,
+      "total": 0.968,
+      "toks": 64,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.43,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: \n  - Best: $O(n \\log n)$\n  - Average: $O(n \\log n)$\n  - Worst: $O(n \\log"
+    },
+    {
+      "tag": "short_5",
+      "tps": 40.07,
+      "ttft": 0.105,
+      "total": 0.155,
+      "toks": 2,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.6,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 99.65,
+      "ttft": 0.181,
+      "total": 0.985,
+      "toks": 80,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.64,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 87.82,
+      "ttft": 0.074,
+      "total": 0.279,
+      "toks": 18,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.64,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 68.0,
+      "ttft": 0.081,
+      "total": 0.36,
+      "toks": 19,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.65,
+      "preview": "```bash\nwc -l /tmp/*.log | tail -n 1\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 68.24,
+      "ttft": 0.107,
+      "total": 0.634,
+      "toks": 36,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.55,
+      "preview": "Yes, because if every Bloop is a Razzie and every Razzie is a Lazzie, then every Bloop must also be a Lazzie."
+    },
+    {
+      "tag": "reason_2",
+      "tps": 87.12,
+      "ttft": 0.186,
+      "total": 3.985,
+      "toks": 331,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.61,
+      "preview": "Let's break this down step-by-step using algebra to ensure accuracy.\n\n### Step 1: Define Variables\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the ball.\n\n### Step 2: Set Up Equations\nFrom t"
+    },
+    {
+      "tag": "reason_3",
+      "tps": 66.14,
+      "ttft": 0.194,
+      "total": 1.796,
+      "toks": 106,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.58,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up, then turn it off.\n2. Immediately turn on the second switch and leave it on, while keeping the third switch"
+    },
+    {
+      "tag": "long",
+      "tps": 77.99,
+      "ttft": 0.666,
+      "total": 0.999,
+      "toks": 26,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.3,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 59.4,
+      "ttft": 0.153,
+      "total": 1.668,
+      "toks": 90,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.45,
+      "preview": "The bug is an `IndexError` because Python uses 0-based indexing, so valid indices for a 3-element list are 0, 1, and 2.\nAccessing `xs[3]` attempts to retrieve the fourth element, which does not exist "
+    },
+    {
+      "tag": "agent",
+      "tps": 62.54,
+      "ttft": 0.187,
+      "total": 3.528,
+      "toks": 209,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.58,
+      "preview": "STEP1: Edit the service unit file (e.g., `~/.config/systemd/user/llama-miaai35.service`) to include a `[Service]` section with `ExecStartPre` for a pre-start health check and `ExecStartPost` for a pos"
+    }
+  ],
+  "tps_min": 33.66,
+  "tps_max": 99.65,
+  "tps_avg": 70.1,
+  "errors": 0,
+  "vram_delta_mib": 0
+}

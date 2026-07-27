@@ -1,0 +1,153 @@
+{
+  "tag": "zwell-combined-q8",
+  "thinking": "off",
+  "score": 100.0,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light (exit 2, 05:41)"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2."
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "1 GB"
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "Not listed."
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "0 (lane-scan is a scan tool, not a trading bot; paper-book has 3 open positions)"
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "It did not fail; it was OK at 09:00."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "found 4/4: {'gateway-light': True, 'backup-mirror': True, 'edge-node': True, 'sleep-research': True}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "14/14 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "'s list.\n- 20:00 is not in B's list.\n\nThere are no overlapping times.\n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "Required: $70 \\text{ GB}$\n\nSince $67.3 < 70$, the models do not fit.\n\nANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "vert seconds to minutes:**\n*   Total minutes = $300 / 60 = 5$ minutes\n\nANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'CRITICAL: Disk usage on / has reached 96%. Immediate action required to prevent service disruption.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      46.71854155095176,
+      54.54842991435897,
+      66.35846844654824,
+      66.28515875295521
+    ],
+    "B_trap": [
+      58.06273678709846,
+      46.078171618150186,
+      48.35232347135552
+    ],
+    "C_enumeration": [
+      47.46396100993816
+    ],
+    "D_brief": [
+      47.168757966848794
+    ],
+    "E_coding": [
+      47.683903404332675,
+      47.59174932127676,
+      46.976957044876634
+    ],
+    "F_reasoning": [
+      48.22265758440784,
+      48.32176807281131,
+      48.02021474640034
+    ],
+    "G_toolcall": [
+      47.92216119032038
+    ]
+  }
+}

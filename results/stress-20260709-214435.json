@@ -1,0 +1,228 @@
+{
+  "timestamp": "2026-07-10T02:44:35.344058Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 62.33,
+    "ram_available_gb": 68.33,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "219530",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 39686
+      }
+    ],
+    "gpu_used_mib_sum": 43661,
+    "llama_gpu_mib": 39686,
+    "gpu_util_pct": "13",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 1.78
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 64.64,
+    "ram_available_gb": 66.02,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "219530",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 39762
+      }
+    ],
+    "gpu_used_mib_sum": 43737,
+    "llama_gpu_mib": 39762,
+    "gpu_util_pct": "94",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 3.96
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 47.0,
+      "ttft": 0.198,
+      "total": 0.283,
+      "toks": 4,
+      "error": null,
+      "vram": 39686,
+      "ram": 62.55,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 67.85,
+      "ttft": 0.197,
+      "total": 0.227,
+      "toks": 2,
+      "error": null,
+      "vram": 39686,
+      "ram": 62.7,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 42.53,
+      "ttft": 0.197,
+      "total": 0.385,
+      "toks": 8,
+      "error": null,
+      "vram": 39686,
+      "ram": 62.86,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 37.27,
+      "ttft": 0.181,
+      "total": 1.899,
+      "toks": 64,
+      "error": null,
+      "vram": 39686,
+      "ram": 62.95,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: \n  - Best: $O(n \\log n)$\n  - Average: $O(n \\log n)$\n  - Worst: $O(n \\log"
+    },
+    {
+      "tag": "short_5",
+      "tps": 74.01,
+      "ttft": 0.181,
+      "total": 0.208,
+      "toks": 2,
+      "error": null,
+      "vram": 39686,
+      "ram": 63.08,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 37.14,
+      "ttft": 0.203,
+      "total": 2.357,
+      "toks": 80,
+      "error": null,
+      "vram": 39686,
+      "ram": 63.18,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 40.07,
+      "ttft": 0.211,
+      "total": 0.66,
+      "toks": 18,
+      "error": null,
+      "vram": 39686,
+      "ram": 63.31,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 40.72,
+      "ttft": 0.199,
+      "total": 0.518,
+      "toks": 13,
+      "error": null,
+      "vram": 39686,
+      "ram": 63.46,
+      "preview": "```bash\nwc -l /tmp/*.log\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 38.7,
+      "ttft": 0.218,
+      "total": 1.149,
+      "toks": 36,
+      "error": null,
+      "vram": 39690,
+      "ram": 63.64,
+      "preview": "Yes, because if every Bloop is a Razzie and every Razzie is a Lazzie, then every Bloop must also be a Lazzie."
+    },
+    {
+      "tag": "reason_2",
+      "tps": 37.63,
+      "ttft": 0.215,
+      "total": 10.819,
+      "toks": 399,
+      "error": null,
+      "vram": 39690,
+      "ram": 63.85,
+      "preview": "To find the cost of the ball, we can set up a system of algebraic equations based on the information provided.\n\n### Step 1: Define Variables\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the "
+    },
+    {
+      "tag": "reason_3",
+      "tps": 37.75,
+      "ttft": 0.209,
+      "total": 2.672,
+      "toks": 93,
+      "error": null,
+      "vram": 39690,
+      "ram": 64.05,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up.\n2. Turn off the first switch and immediately turn on the second switch.\n3. Enter the room with the bulb.\n4"
+    },
+    {
+      "tag": "long",
+      "tps": 36.39,
+      "ttft": 6.308,
+      "total": 7.023,
+      "toks": 26,
+      "error": null,
+      "vram": 39762,
+      "ram": 64.33,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 38.0,
+      "ttft": 0.271,
+      "total": 2.324,
+      "toks": 78,
+      "error": null,
+      "vram": 39762,
+      "ram": 64.59,
+      "preview": "The bug is an `IndexError` because Python lists are zero-indexed, so valid indices for a 3-element list are 0, 1, and 2.\nAccessing `xs[3]` attempts to retrieve the fourth element, which does not exist"
+    },
+    {
+      "tag": "agent",
+      "tps": 35.65,
+      "ttft": 0.239,
+      "total": 5.176,
+      "toks": 176,
+      "error": null,
+      "vram": 39762,
+      "ram": 64.64,
+      "preview": "STEP1: Create a health check script (e.g., `check_llama_health.sh`) that verifies the service's port or process status and exits with code 0 on success or non-zero on failure.\nSTEP2: Edit the `llama-m"
+    }
+  ],
+  "tps_min": 35.65,
+  "tps_max": 74.01,
+  "tps_avg": 43.62,
+  "errors": 0,
+  "vram_delta_mib": 76
+}

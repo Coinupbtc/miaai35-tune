@@ -1,0 +1,226 @@
+{
+  "tag": "pass7-balanced-stack-think-off",
+  "timestamp": "2026-07-10T01:37:56.318054+00:00",
+  "base_url": "http://127.0.0.1:8889",
+  "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+  "temperature": 0.1,
+  "enable_thinking": false,
+  "mem_before": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 58.49,
+    "ram_available_gb": 72.17,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "124389",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 38476
+      }
+    ],
+    "gpu_used_mib_sum": 42451,
+    "llama_gpu_mib": 38476,
+    "gpu_util_pct": "19",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 1.31
+  },
+  "mem_after": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 59.38,
+    "ram_available_gb": 71.28,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "124389",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 38512
+      }
+    ],
+    "gpu_used_mib_sum": 42487,
+    "llama_gpu_mib": 38512,
+    "gpu_util_pct": "17",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 2.18
+  },
+  "results": [
+    {
+      "test": "short",
+      "label": "Short prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 39.64,
+      "ttft_s": 0.443,
+      "total_s": 0.999,
+      "completion_tokens": 22,
+      "prompt_tokens": 35,
+      "prompt_tokens_per_sec": 90.99,
+      "vram_mib": 38478,
+      "ram_used_gb": 58.93,
+      "llama_rss_gb": 1.74,
+      "gpu_util_pct": "91",
+      "cpu_use_pct": 15.4,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:correct product 408",
+        "pass:capital Tokyo"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "17 multiplied by 24 equals 408, and the capital of Japan is Tokyo.",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 35,
+        "prompt_ms": 384.659,
+        "prompt_per_token_ms": 10.990257142857143,
+        "prompt_per_second": 90.98968177008727,
+        "predicted_n": 22,
+        "predicted_ms": 554.934,
+        "predicted_per_token_ms": 25.224272727272727,
+        "predicted_per_second": 39.64435410337085
+      }
+    },
+    {
+      "test": "coding",
+      "label": "Coding prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 36.82,
+      "ttft_s": 0.284,
+      "total_s": 12.968,
+      "completion_tokens": 467,
+      "prompt_tokens": 70,
+      "prompt_tokens_per_sec": 314.65,
+      "vram_mib": 38480,
+      "ram_used_gb": 59.05,
+      "llama_rss_gb": 1.88,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 16.8,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:defines merge_intervals",
+        "pass:sorts intervals",
+        "pass:includes asserts",
+        "pass:type hints"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Merge overlapping intervals.\n\n    Given a list of intervals where each interval is a list of two integers\n    [start, end], merge all overlapping intervals and return a list of\n    non-overlapping intervals that cover all the input intervals.\n\n    Args:\n        intervals: A list of intervals, each represented as [start, end].\n\n    Returns:\n        A list of merged, non-overlapping intervals.\n\n    Example:\n ",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 70,
+        "prompt_ms": 222.469,
+        "prompt_per_token_ms": 3.178128571428571,
+        "prompt_per_second": 314.65058053032106,
+        "predicted_n": 467,
+        "predicted_ms": 12684.124,
+        "predicted_per_token_ms": 27.160865096359743,
+        "predicted_per_second": 36.81767854051253
+      }
+    },
+    {
+      "test": "reasoning",
+      "label": "Reasoning prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 35.12,
+      "ttft_s": 0.269,
+      "total_s": 14.848,
+      "completion_tokens": 512,
+      "prompt_tokens": 63,
+      "prompt_tokens_per_sec": 302.99,
+      "vram_mib": 38480,
+      "ram_used_gb": 59.16,
+      "llama_rss_gb": 2.02,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 18.5,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:23 chickens",
+        "pass:12 rabbits",
+        "pass:uses equations"
+      ],
+      "stability": "pass",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "To solve this problem, we will use a system of linear equations.\n\n### Step 1: Define Variables\nLet $c$ be the number of chickens.\nLet $r$ be the number of rabbits.\n\n### Step 2: Set Up Equations\nWe know two things:\n1.  **Heads:** Each chicken has 1 head and each rabbit has 1 head. The total number of heads is 35.\n    $$c + r = 35$$\n2.  **Legs:** Each chicken has 2 legs and each rabbit has 4 legs. The total number of legs is 94.\n    $$2c + 4r = 94$$\n\nSo, our system of equations is:\n1) $c + r = 35$",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 63,
+        "prompt_ms": 207.928,
+        "prompt_per_token_ms": 3.3004444444444445,
+        "prompt_per_second": 302.989496364126,
+        "predicted_n": 512,
+        "predicted_ms": 14578.904,
+        "predicted_per_token_ms": 28.474421875,
+        "predicted_per_second": 35.11923804423158
+      }
+    },
+    {
+      "test": "long_context",
+      "label": "Long-context prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 32.72,
+      "ttft_s": 7.765,
+      "total_s": 8.56,
+      "completion_tokens": 26,
+      "prompt_tokens": 9478,
+      "prompt_tokens_per_sec": 1233.98,
+      "vram_mib": 38512,
+      "ram_used_gb": 59.37,
+      "llama_rss_gb": 2.18,
+      "gpu_util_pct": "94",
+      "cpu_use_pct": 18.4,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:recalls ALPHA token",
+        "pass:recalls BETA token",
+        "pass:recalls number 42"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 9478,
+        "prompt_ms": 7680.825,
+        "prompt_per_token_ms": 0.8103845748048111,
+        "prompt_per_second": 1233.982026670312,
+        "predicted_n": 26,
+        "predicted_ms": 794.721,
+        "predicted_per_token_ms": 30.566192307692308,
+        "predicted_per_second": 32.715883939143424
+      }
+    }
+  ]
+}

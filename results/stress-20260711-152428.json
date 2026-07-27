@@ -1,0 +1,228 @@
+{
+  "timestamp": "2026-07-11T20:24:28.568516Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 103.91,
+    "ram_available_gb": 26.75,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "3445184",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 42538
+      },
+      {
+        "pid": "3583514",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 26436
+      },
+      {
+        "pid": "3601028",
+        "name": "$HOME/projects/lane-scan/.venv/bin/python",
+        "used_mib": 3153
+      }
+    ],
+    "gpu_used_mib_sum": 72568,
+    "llama_gpu_mib": 26436,
+    "gpu_util_pct": "4",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 16.52
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 106.16,
+    "ram_available_gb": 24.5,
+    "gpu_apps": [
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "3445184",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 42538
+      },
+      {
+        "pid": "3583514",
+        "name": "$HOME/llama.cpp-master/build/bin/llama-server",
+        "used_mib": 26436
+      },
+      {
+        "pid": "3601028",
+        "name": "$HOME/projects/lane-scan/.venv/bin/python",
+        "used_mib": 3153
+      }
+    ],
+    "gpu_used_mib_sum": 72568,
+    "llama_gpu_mib": 26436,
+    "gpu_util_pct": "88",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 18.67
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 67.62,
+      "ttft": 0.463,
+      "total": 0.522,
+      "toks": 4,
+      "error": null,
+      "vram": 26436,
+      "ram": 104.39,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 33.78,
+      "ttft": 0.175,
+      "total": 0.234,
+      "toks": 2,
+      "error": null,
+      "vram": 26436,
+      "ram": 104.4,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 84.95,
+      "ttft": 0.16,
+      "total": 0.254,
+      "toks": 8,
+      "error": null,
+      "vram": 26436,
+      "ram": 104.39,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 69.47,
+      "ttft": 0.175,
+      "total": 1.097,
+      "toks": 64,
+      "error": null,
+      "vram": 26436,
+      "ram": 104.72,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: $O(n \\log n)$ in all cases (best, average, and worst).\n- **Space Complex"
+    },
+    {
+      "tag": "short_5",
+      "tps": 38.37,
+      "ttft": 0.165,
+      "total": 0.217,
+      "toks": 2,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.36,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 99.38,
+      "ttft": 0.165,
+      "total": 0.97,
+      "toks": 80,
+      "error": null,
+      "vram": 26436,
+      "ram": 104.83,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 90.99,
+      "ttft": 0.178,
+      "total": 0.376,
+      "toks": 18,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.0,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 81.78,
+      "ttft": 0.176,
+      "total": 0.334,
+      "toks": 13,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.2,
+      "preview": "```bash\nwc -l /tmp/*.log\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 66.58,
+      "ttft": 0.197,
+      "total": 0.782,
+      "toks": 39,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.21,
+      "preview": "Yes, because if every Bloop is a Razzie and every Razzie is a Lazzie, then every Bloop must also be a Lazzie by transitivity."
+    },
+    {
+      "tag": "reason_2",
+      "tps": 90.67,
+      "ttft": 0.197,
+      "total": 3.936,
+      "toks": 339,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.56,
+      "preview": "Let's break this down step-by-step using algebra to ensure accuracy.\n\n### Step 1: Define Variables\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the ball.\n\n### Step 2: Set Up Equations\nFrom t"
+    },
+    {
+      "tag": "reason_3",
+      "tps": 69.57,
+      "ttft": 0.181,
+      "total": 1.704,
+      "toks": 106,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.97,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up, then turn it off.\n2. Immediately turn on the second switch and leave it on, while keeping the third switch"
+    },
+    {
+      "tag": "long",
+      "tps": 81.7,
+      "ttft": 4.734,
+      "total": 5.052,
+      "toks": 26,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.16,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 61.52,
+      "ttft": 0.249,
+      "total": 1.517,
+      "toks": 78,
+      "error": null,
+      "vram": 26436,
+      "ram": 105.97,
+      "preview": "The bug is an `IndexError` because Python uses 0-based indexing, so valid indices for a 3-element list are 0, 1, and 2.\nAccessing `xs[3]` attempts to retrieve the fourth element, which does not exist."
+    },
+    {
+      "tag": "agent",
+      "tps": 59.93,
+      "ttft": 0.205,
+      "total": 4.009,
+      "toks": 228,
+      "error": null,
+      "vram": 26436,
+      "ram": 106.15,
+      "preview": "STEP1: Edit the service unit file (e.g., `~/.config/systemd/user/llama-miaai35.service`) and add a `[Service]` section with `ExecStartPre` to run a lightweight health check command (like `curl` or a c"
+    }
+  ],
+  "tps_min": 33.78,
+  "tps_max": 99.38,
+  "tps_avg": 71.16,
+  "errors": 0,
+  "vram_delta_mib": 0
+}

@@ -1,0 +1,33 @@
+[Unit]
+Description=MiaAI-Lab Qwen3.6-35B-A3B GGUF (llama.cpp CUDA, :8889) — default agent model
+Documentation=https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe
+After=network-online.target
+Wants=network-online.target
+# After 5 crash-restarts within 10 min, enter failed state and page via OnFailure.
+StartLimitIntervalSec=600
+StartLimitBurst=5
+OnFailure=llama-miaai35-alert.service
+
+[Service]
+Type=exec
+# CUDA build explicitly — ~/.local/bin/llama-server is Ollama's CPU-only helper (7 tok/s).
+ExecStart=$HOME/llama.cpp/build/bin/llama-server \
+  --model $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --mmproj $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
+  --ctx-size 131072 \
+  --host 0.0.0.0 \
+  --port 8889 \
+  --temperature 0.6 \
+  --top-p 0.95 \
+  --top-k 20 \
+  --min-p 0.0 \
+  --presence-penalty 0.0 \
+  --repeat-penalty 1.0 \
+  --chat-template-kwargs '{"preserve_thinking":true}'
+Restart=always
+RestartSec=5
+# llama.cpp weights + KV load can take ~45s cold; give it room before "failed".
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

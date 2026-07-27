@@ -1,0 +1,5 @@
+pid, process_name, used_gpu_memory [MiB]
+2555, $HOME/llama.cpp/build/bin/llama-server, 40552 MiB
+2544, $HOME/comfy/ComfyUI/.venv/bin/python, 385 MiB
+41145, /usr/libexec/gnome-remote-desktop-daemon, 441 MiB
+45318, python3, 3149 MiB

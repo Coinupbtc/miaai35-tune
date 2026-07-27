@@ -1,0 +1,153 @@
+{
+  "tag": "minimax-v2-ngram-ub1024",
+  "thinking": "off",
+  "score": 63.2,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2 matches are flagged for review."
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "Swap usage is **1/15 GB** (1 GB used out of 15 GB available)."
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "vault-lint did not fail. It completed successfully ("
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": false,
+      "detail": "found 0/4: {'gateway-light': False, 'backup-mirror': False, 'edge-node': False, 'sleep-research': False}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "0 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "0/0 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"/tmp/tmp4md3m5kv.py\", line 3, in <module>\n    assert parse_uptime('3d 4h 12m')==3*86400+4*3600+12*60\n           ^^^^^^^^^^^^\nNameError: name 'parse_uptime' i"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": "  File \"/tmp/tmp86ay4_aw.py\", line 1\n    ```python\n    ^\nSyntaxError: invalid syntax\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": ".  \n\nThese two sets have no common times within the 24\u2011hour period.  \n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "ANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "00\\)\u202fseconds.  \n\nConvert to minutes: \\(300 \\div 60 = 5\\)\u202fminutes.\n\n**ANSWER: 5**"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'URGENT: Disk usage on / has reached 96%! Immediate action required to prevent system issues.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      22.555698766341372,
+      30.94779530873817,
+      29.42196731255755,
+      25.181561890620348
+    ],
+    "B_trap": [
+      25.0630230600698,
+      22.935695648823305,
+      25.842353032384775
+    ],
+    "C_enumeration": [
+      26.158242509299512
+    ],
+    "D_brief": [
+      22.893893443120238
+    ],
+    "E_coding": [
+      25.832850285942204,
+      25.239145516182777,
+      25.303983875036273
+    ],
+    "F_reasoning": [
+      29.980517621735114,
+      25.548360475475878,
+      27.00923822480246
+    ],
+    "G_toolcall": [
+      24.766184701702564
+    ]
+  }
+}

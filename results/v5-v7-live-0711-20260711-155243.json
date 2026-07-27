@@ -1,0 +1,153 @@
+{
+  "tag": "v7-live-0711",
+  "thinking": "off",
+  "score": 100.0,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "1/15 GB"
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "The provided digest does not list a \"mistral-download\" service."
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "The digest does not state the number of open trading positions for `lane-scan`. It only reports th"
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "vault-lint did not fail; it was OK."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "found 4/4: {'gateway-light': True, 'backup-mirror': True, 'edge-node': True, 'sleep-research': True}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "8 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "8/8 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "onclusion:**\nThere are 0 times when both jobs run at the same moment.\n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "ired: 123.7 GB\n\nSince 123.7 GB > 121 GB, the memory is insufficient.\n\nANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "{300 \\text{ seconds}}{60 \\text{ seconds/minute}} = 5 \\text{ minutes}$\n\nANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'CRITICAL: Disk usage on / has reached 96%. Immediate action required to prevent service disruption.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      58.78261210333984,
+      51.20196615550037,
+      40.75311761349743,
+      50.18526727836931
+    ],
+    "B_trap": [
+      58.48888126367178,
+      71.33329053335902,
+      64.85785320505892
+    ],
+    "C_enumeration": [
+      77.720207253886
+    ],
+    "D_brief": [
+      71.7210930073042
+    ],
+    "E_coding": [
+      99.87126829433242,
+      105.79015992827425,
+      98.12795110129258
+    ],
+    "F_reasoning": [
+      87.35456803712756,
+      86.77432994440133,
+      88.16651178058831
+    ],
+    "G_toolcall": [
+      103.89591778608548
+    ]
+  }
+}

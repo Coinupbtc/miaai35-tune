@@ -1,0 +1,153 @@
+{
+  "tag": "v8opt5-gptoss120b",
+  "thinking": "off",
+  "score": 84.2,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "The **agent-gateway-light** service failed."
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2."
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "The swap usage is **1\u202fGB**."
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "The digest does not list a \u201c"
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": "The digest does not provide a count of open trading positions for\u202flane-scan."
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "Vault\u2011lint did not fail; it completed successfully at\u202f09:00 (the previous day)."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": false,
+      "detail": "found 0/4: {'gateway-light': False, 'backup-mirror': False, 'edge-node': False, 'sleep-research': False}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "3 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "3/3 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "g the day there is **no** clock time when both jobs run together.\n\n**ANSWER: 0**"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": " projected 123.7\u202fGB. Therefore, the two new models will not fit.\n\n**ANSWER: NO**"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "300\\)\u202fseconds.  \n\nConvert to minutes: \\(300 \u00f7 60 = 5\\)\u202fminutes.  \n\n**ANSWER: 5**"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': \"Alert: Disk usage on '/' has reached 96%. Immediate action required.\", 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      38.79342742355877,
+      41.6230665045032,
+      38.45036169220042,
+      38.01518495443458
+    ],
+    "B_trap": [
+      38.25332756133124,
+      37.83609526575089,
+      41.40901446265788
+    ],
+    "C_enumeration": [
+      35.87666864179687
+    ],
+    "D_brief": [
+      38.292499169531425
+    ],
+    "E_coding": [
+      39.03965618312366,
+      39.08834377954052,
+      40.83586182400846
+    ],
+    "F_reasoning": [
+      39.9675236778893,
+      41.13447627635123,
+      41.438614480631564
+    ],
+    "G_toolcall": [
+      41.57012551990005
+    ]
+  }
+}

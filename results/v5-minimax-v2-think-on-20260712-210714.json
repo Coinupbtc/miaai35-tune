@@ -1,0 +1,153 @@
+{
+  "tag": "minimax-v2-think-on",
+  "thinking": "on",
+  "score": 68.4,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "Swap usage is **1 GB** (out of 15 GB total)."
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "The lane-scan entry does not report open positions. It only shows 42 matches found with 2 flagged"
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "vault-lint did not fail. According to the digest, vault-lint completed **OK** at 09:00 (prev day). T"
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": false,
+      "detail": "found 0/4: {'gateway-light': False, 'backup-mirror': False, 'edge-node': False, 'sleep-research': False}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "0 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "0/0 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"/tmp/tmpxi_ot6g1.py\", line 3, in <module>\n    assert max_idle_gap([0,360,720,1080])==360\n           ^^^^^^^^^^^^\nNameError: name 'max_idle_gap' is not define"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "7\u202fGB\u202f+\u202f70\u202fGB = **123.7\u202fGB**, which exceeds the available 121\u202fGB.\n\n**ANSWER: NO**"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "ANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': '\ud83d\udea8 CRITICAL: Disk usage on / has hit 96%! Immediate action required to prevent system issues.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      23.86023516367069,
+      27.480184823871642,
+      18.956099221639352,
+      25.816150785095967
+    ],
+    "B_trap": [
+      25.214411801353297,
+      23.02207740482865,
+      26.090908727217638
+    ],
+    "C_enumeration": [
+      23.235198388629698
+    ],
+    "D_brief": [
+      22.645701879751776
+    ],
+    "E_coding": [
+      26.079591826430594,
+      25.95511261236415,
+      40.972206964343066
+    ],
+    "F_reasoning": [
+      24.980233943816348,
+      26.09654593496654,
+      26.45507503600415
+    ],
+    "G_toolcall": [
+      25.052752832639865
+    ]
+  }
+}

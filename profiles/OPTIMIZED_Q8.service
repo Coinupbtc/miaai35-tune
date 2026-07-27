@@ -1,0 +1,45 @@
+[Unit]
+Description=MiaAI-Lab Qwen3.6-35B Q8 OPTIMIZED (same weights; fa+kv-q4+parallel2+prio)
+Documentation=file://$HOME/models/dgx_bundle/miaai35-tune/REPORT.md
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+OnFailure=llama-miaai35-alert.service
+
+[Service]
+Type=exec
+# SAME GGUF as production (UD-Q8_K_XL). No new downloads.
+# Changes vs BALANCED:
+#   - KV cache q4_0 (runtime only) for faster long-context attention
+#   - --parallel 2 to cut multi-slot thrash under multi-agent load (was default 4)
+#   - --prio 2 / --poll 100 for lower scheduling latency
+#   - batch/ubatch tuned for prompt path
+# Keep mmproj + 128k for daily multi-agent use (vision + long agent threads).
+ExecStart=$HOME/llama.cpp/build/bin/llama-server \
+  --model $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --mmproj $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
+  --ctx-size 131072 \
+  --parallel 2 \
+  --flash-attn on \
+  --cache-type-k q4_0 \
+  --cache-type-v q4_0 \
+  --batch-size 2048 \
+  --ubatch-size 512 \
+  --prio 2 \
+  --poll 100 \
+  --host 0.0.0.0 \
+  --port 8889 \
+  --temperature 0.6 \
+  --top-p 0.95 \
+  --top-k 20 \
+  --min-p 0.0 \
+  --presence-penalty 0.0 \
+  --repeat-penalty 1.0 \
+  --chat-template-kwargs '{"preserve_thinking":true}'
+Restart=always
+RestartSec=5
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

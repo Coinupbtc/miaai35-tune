@@ -1,0 +1,228 @@
+{
+  "timestamp": "2026-07-10T01:39:22.490714Z",
+  "mem_start": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 58.46,
+    "ram_available_gb": 72.2,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "125936",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 38476
+      }
+    ],
+    "gpu_used_mib_sum": 42451,
+    "llama_gpu_mib": 38476,
+    "gpu_util_pct": "91",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 1.31
+  },
+  "mem_end": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 60.85,
+    "ram_available_gb": 69.82,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "125936",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 38512
+      }
+    ],
+    "gpu_used_mib_sum": 42487,
+    "llama_gpu_mib": 38512,
+    "gpu_util_pct": "93",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 3.6
+  },
+  "rows": [
+    {
+      "tag": "short_1",
+      "tps": 46.36,
+      "ttft": 0.192,
+      "total": 0.278,
+      "toks": 4,
+      "error": null,
+      "vram": 38476,
+      "ram": 58.63,
+      "preview": "OK 7"
+    },
+    {
+      "tag": "short_2",
+      "tps": 69.26,
+      "ttft": 0.207,
+      "total": 0.236,
+      "toks": 2,
+      "error": null,
+      "vram": 38476,
+      "ram": 58.82,
+      "preview": "Paris"
+    },
+    {
+      "tag": "short_3",
+      "tps": 39.26,
+      "ttft": 0.194,
+      "total": 0.398,
+      "toks": 8,
+      "error": null,
+      "vram": 38476,
+      "ram": 58.95,
+      "preview": "2 + 2 = 4"
+    },
+    {
+      "tag": "short_4",
+      "tps": 34.84,
+      "ttft": 0.198,
+      "total": 2.036,
+      "toks": 64,
+      "error": null,
+      "vram": 38476,
+      "ram": 59.1,
+      "preview": "One common sorting algorithm is **Merge Sort**.\n\n### Key Characteristics:\n- **Type**: Divide and Conquer\n- **Time Complexity**: \n  - Best: $O(n \\log n)$\n  - Average: $O(n \\log n)$\n  - Worst: $O(n \\log"
+    },
+    {
+      "tag": "short_5",
+      "tps": 79.1,
+      "ttft": 0.189,
+      "total": 0.214,
+      "toks": 2,
+      "error": null,
+      "vram": 38476,
+      "ram": 59.18,
+      "preview": "ping"
+    },
+    {
+      "tag": "coding_1",
+      "tps": 35.59,
+      "ttft": 0.413,
+      "total": 2.662,
+      "toks": 80,
+      "error": null,
+      "vram": 38476,
+      "ram": 59.54,
+      "preview": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        retu"
+    },
+    {
+      "tag": "coding_2",
+      "tps": 38.19,
+      "ttft": 0.212,
+      "total": 0.683,
+      "toks": 18,
+      "error": null,
+      "vram": 38476,
+      "ram": 59.72,
+      "preview": "```python\ndef add(a, b):\n    return a + b\n```"
+    },
+    {
+      "tag": "coding_3",
+      "tps": 38.97,
+      "ttft": 0.195,
+      "total": 0.528,
+      "toks": 13,
+      "error": null,
+      "vram": 38476,
+      "ram": 59.85,
+      "preview": "```bash\nwc -l /tmp/*.log\n```"
+    },
+    {
+      "tag": "reason_1",
+      "tps": 36.64,
+      "ttft": 0.227,
+      "total": 1.483,
+      "toks": 46,
+      "error": null,
+      "vram": 38480,
+      "ram": 60.03,
+      "preview": "Yes, because the transitive property of logic dictates that if one group is entirely contained within a second group, and that second group is entirely contained within a third, the first group must a"
+    },
+    {
+      "tag": "reason_2",
+      "tps": 35.26,
+      "ttft": 0.207,
+      "total": 10.133,
+      "toks": 350,
+      "error": null,
+      "vram": 38480,
+      "ram": 60.07,
+      "preview": "Let's break this down step-by-step using algebra to ensure accuracy.\n\n### Step 1: Define Variables\nLet $B$ be the cost of the bat.\nLet $b$ be the cost of the ball.\n\n### Step 2: Set Up Equations\nFrom t"
+    },
+    {
+      "tag": "reason_3",
+      "tps": 35.74,
+      "ttft": 0.209,
+      "total": 3.175,
+      "toks": 106,
+      "error": null,
+      "vram": 38480,
+      "ram": 60.25,
+      "preview": "1. Turn on the first switch and leave it on for several minutes to allow the bulb to heat up, then turn it off.\n2. Immediately turn on the second switch and leave it on, while keeping the third switch"
+    },
+    {
+      "tag": "long",
+      "tps": 36.2,
+      "ttft": 8.059,
+      "total": 8.778,
+      "toks": 26,
+      "error": null,
+      "vram": 38512,
+      "ram": 60.51,
+      "preview": "A=ALPHA-TOKEN-7F3C B=BETA-TOKEN-9K2M N=42"
+    },
+    {
+      "tag": "debug",
+      "tps": 37.13,
+      "ttft": 0.253,
+      "total": 2.352,
+      "toks": 78,
+      "error": null,
+      "vram": 38512,
+      "ram": 60.76,
+      "preview": "The bug is an `IndexError` because Python lists are zero-indexed, so valid indices for a 3-element list are 0, 1, and 2.\nAccessing `xs[3]` attempts to retrieve the fourth element, which does not exist"
+    },
+    {
+      "tag": "agent",
+      "tps": 37.34,
+      "ttft": 0.224,
+      "total": 5.366,
+      "toks": 192,
+      "error": null,
+      "vram": 38512,
+      "ram": 60.87,
+      "preview": "STEP1: Create a health check script (e.g., `check_llama_health.sh`) that verifies the service's port or process status and exits with code 0 on success or non-zero on failure.\nSTEP2: Edit the `llama-m"
+    }
+  ],
+  "tps_min": 34.84,
+  "tps_max": 79.1,
+  "tps_avg": 42.85,
+  "errors": 0,
+  "vram_delta_mib": 36
+}

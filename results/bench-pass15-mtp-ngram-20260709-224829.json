@@ -1,0 +1,165 @@
+{
+  "tag": "pass15-mtp-ngram",
+  "timestamp": "2026-07-10T03:48:29.295978+00:00",
+  "base_url": "http://127.0.0.1:8889",
+  "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+  "temperature": 0.1,
+  "enable_thinking": false,
+  "mem_before": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 66.67,
+    "ram_available_gb": 64.0,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3151
+      },
+      {
+        "pid": "238151",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "316563",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42496
+      }
+    ],
+    "gpu_used_mib_sum": 49622,
+    "llama_gpu_mib": 42496,
+    "gpu_util_pct": "83",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 2.36
+  },
+  "mem_after": {
+    "ram_total_gb": 130.66,
+    "ram_used_gb": 67.19,
+    "ram_available_gb": 63.48,
+    "gpu_apps": [
+      {
+        "pid": "2544",
+        "name": "$HOME/comfy/ComfyUI/.venv/bin/python",
+        "used_mib": 385
+      },
+      {
+        "pid": "41145",
+        "name": "/usr/libexec/gnome-remote-desktop-daemon",
+        "used_mib": 441
+      },
+      {
+        "pid": "45318",
+        "name": "python3",
+        "used_mib": 3151
+      },
+      {
+        "pid": "238151",
+        "name": "python3",
+        "used_mib": 3149
+      },
+      {
+        "pid": "316563",
+        "name": "$HOME/llama.cpp/build/bin/llama-server",
+        "used_mib": 42532
+      }
+    ],
+    "gpu_used_mib_sum": 49658,
+    "llama_gpu_mib": 42532,
+    "gpu_util_pct": "14",
+    "gpu_mem_util_pct": "0",
+    "llama_rss_gb": 2.88
+  },
+  "results": [
+    {
+      "test": "coding",
+      "label": "Coding prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 52.99,
+      "ttft_s": 0.314,
+      "total_s": 9.166,
+      "completion_tokens": 469,
+      "prompt_tokens": 70,
+      "prompt_tokens_per_sec": 284.24,
+      "vram_mib": 42532,
+      "ram_used_gb": 67.02,
+      "llama_rss_gb": 2.68,
+      "gpu_util_pct": "92",
+      "cpu_use_pct": 22.5,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:defines merge_intervals",
+        "pass:sorts intervals",
+        "pass:includes asserts",
+        "pass:type hints"
+      ],
+      "stability": "pass",
+      "finish_reason": "stop",
+      "error": null,
+      "text_preview": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Merge overlapping intervals.\n\n    Given a list of intervals where each interval is a list of two integers [start, end],\n    merge all overlapping intervals and return a list of non-overlapping intervals that\n    cover all the input intervals.\n\n    Args:\n        intervals: A list of intervals, each represented as [start, end].\n\n    Returns:\n        A list of merged non-overlapping intervals.\n\n    Example:\n  ",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 70,
+        "prompt_ms": 246.274,
+        "prompt_per_token_ms": 3.5182,
+        "prompt_per_second": 284.23625717696547,
+        "predicted_n": 469,
+        "predicted_ms": 8851.231,
+        "predicted_per_token_ms": 18.872560767590617,
+        "predicted_per_second": 52.98698000312047,
+        "draft_n": 478,
+        "draft_n_accepted": 346
+      }
+    },
+    {
+      "test": "reasoning",
+      "label": "Reasoning prompt",
+      "enable_thinking": false,
+      "tokens_per_sec": 57.62,
+      "ttft_s": 0.291,
+      "total_s": 9.176,
+      "completion_tokens": 512,
+      "prompt_tokens": 63,
+      "prompt_tokens_per_sec": 277.83,
+      "vram_mib": 42532,
+      "ram_used_gb": 67.18,
+      "llama_rss_gb": 2.88,
+      "gpu_util_pct": "93",
+      "cpu_use_pct": 22.5,
+      "quality_score": 9.0,
+      "quality_notes": [
+        "pass:23 chickens",
+        "pass:12 rabbits",
+        "pass:uses equations"
+      ],
+      "stability": "pass",
+      "finish_reason": "length",
+      "error": null,
+      "text_preview": "To solve this problem, we will use a system of linear equations.\n\n### Step 1: Define Variables\nLet $c$ be the number of chickens.\nLet $r$ be the number of rabbits.\n\n### Step 2: Set Up Equations\nWe know two facts:\n1.  **Heads:** Each chicken and each rabbit has one head. The total number of heads is 35.\n    $$c + r = 35$$\n2.  **Legs:** Chickens have 2 legs, and rabbits have 4 legs. The total number of legs is 94.\n    $$2c + 4r = 94$$\n\nSo, our system of equations is:\n1) $c + r = 35$\n2) $2c + 4r = ",
+      "reasoning_preview": "",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 63,
+        "prompt_ms": 226.757,
+        "prompt_per_token_ms": 3.5993174603174602,
+        "prompt_per_second": 277.83045286363813,
+        "predicted_n": 512,
+        "predicted_ms": 8885.155,
+        "predicted_per_token_ms": 17.353818359375,
+        "predicted_per_second": 57.624205767935386,
+        "draft_n": 403,
+        "draft_n_accepted": 388
+      }
+    }
+  ]
+}

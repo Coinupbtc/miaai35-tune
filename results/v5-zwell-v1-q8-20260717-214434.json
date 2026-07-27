@@ -1,0 +1,153 @@
+{
+  "tag": "zwell-v1-q8",
+  "thinking": "off",
+  "score": 78.9,
+  "checks": [
+    {
+      "name": "qa1",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "agent-gateway-light (exit 2, 05:41)"
+    },
+    {
+      "name": "qa2",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "04:20"
+    },
+    {
+      "name": "qa3",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "2. Extracted from trading: \"lane-scan scan OK, 42 matches, 2 flagged for revie"
+    },
+    {
+      "name": "qa4",
+      "cat": "A_faithfulness",
+      "pass": true,
+      "detail": "1 GB used out of 15 GB."
+    },
+    {
+      "name": "absent-service",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "Not listed in the digest."
+    },
+    {
+      "name": "no-cross-attribution",
+      "cat": "B_trap",
+      "pass": false,
+      "detail": "0. The digest reports 3 open positions for `paper-book`, but `lane-scan` only performed a scan"
+    },
+    {
+      "name": "false-premise",
+      "cat": "B_trap",
+      "pass": true,
+      "detail": "It did not fail; it completed OK at 09:00."
+    },
+    {
+      "name": "recall-4of4",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "found 4/4: {'gateway-light': True, 'backup-mirror': True, 'edge-node': True, 'sleep-research': True}"
+    },
+    {
+      "name": "no-false-positives",
+      "cat": "C_enumeration",
+      "pass": true,
+      "detail": "wrongly listed: []"
+    },
+    {
+      "name": "max-14-lines",
+      "cat": "D_brief",
+      "pass": false,
+      "detail": "28 lines"
+    },
+    {
+      "name": "all-bullets",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "28/28 bulleted"
+    },
+    {
+      "name": "mentions-failures",
+      "cat": "D_brief",
+      "pass": true,
+      "detail": "brief must surface the two failures"
+    },
+    {
+      "name": "parse_uptime",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": " \"/tmp/tmpm3wb33r1.py\", line 21, in <module>\n    assert parse_uptime('3d 4h 12m')==3*86400+4*3600+12*60\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/tmpm3wb33r1.py\", line 7, in parse_uptime\n    v"
+    },
+    {
+      "name": "dedupe_events",
+      "cat": "E_coding",
+      "pass": true,
+      "detail": "ALL_TESTS_PASS\n"
+    },
+    {
+      "name": "next_cron_gap",
+      "cat": "E_coding",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"/tmp/tmpfkgvuipz.py\", line 17, in <module>\n    assert max_idle_gap([60])==1440\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "cron-collision",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "ons for $t$.\n\nThus, Job A and Job B never run at the same clock time.\n\nANSWER: 0"
+    },
+    {
+      "name": "memory-budget",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "    *   Required: 70 GB\n    *   $67.3 < 70$, so it does **not** fit.\n\nANSWER: NO"
+    },
+    {
+      "name": "gpu-minutes",
+      "cat": "F_reasoning",
+      "pass": true,
+      "detail": "{300 \\text{ seconds}}{60 \\text{ seconds/minute}} = 5 \\text{ minutes}$\n\nANSWER: 5"
+    },
+    {
+      "name": "alert-tool",
+      "cat": "G_toolcall",
+      "pass": true,
+      "detail": "send_alert({'message': 'Disk usage on / has reached 96%. Immediate action required to prevent service disruption.', 'priority': 'high'})"
+    }
+  ],
+  "tps_by_cat": {
+    "A_faithfulness": [
+      47.65989896101421,
+      58.16376978779918,
+      53.21611596855992,
+      58.92530949179599
+    ],
+    "B_trap": [
+      60.36460219727152,
+      53.513670253741914,
+      57.44854131394953
+    ],
+    "C_enumeration": [
+      53.14868770575186
+    ],
+    "D_brief": [
+      52.96881606618348
+    ],
+    "E_coding": [
+      53.19687539897656,
+      51.99441396484321,
+      53.107352018406196
+    ],
+    "F_reasoning": [
+      52.44592543690188,
+      52.22089937778703,
+      52.33335620611943
+    ],
+    "G_toolcall": [
+      51.43840484830346
+    ]
+  }
+}
