@@ -4,7 +4,6 @@
 
 
 
-![Screenshot](docs/screenshots/hero.png)
 
 Measured **llama.cpp** tune for **Qwen3.6-35B-A3B** on NVIDIA DGX Spark.
 
