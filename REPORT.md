@@ -1,17 +1,15 @@
 # MiaAI-Lab Qwen3.6-35B — Measured Tune Report
 
-> **Note:** Serving baseline for these measurements was MiaAI Labs’ [Qwen3.6-35B Spark recipe](https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe). Numbers and profiles below are ours.
-
 **Date:** 2026-07-09  
-**Host:** DGX Spark GB10 (aarch64, Ubuntu 24.04)  
+**Host:** sparkmax-10ef (DGX Spark GB10, aarch64, Ubuntu 24.04)  
 **Rule:** numbers below were measured; no estimates.
 
 ## Revert to original (always available)
 
 ```bash
-$HOME/models/dgx_bundle/miaai35-tune/revert-original.sh
+/home/coinupbtc/models/dgx_bundle/miaai35-tune/revert-original.sh
 # or:
-$HOME/models/dgx_bundle/miaai35-tune/apply-profile.sh ORIGINAL
+/home/coinupbtc/models/dgx_bundle/miaai35-tune/apply-profile.sh ORIGINAL
 ```
 
 Backup of pre-tune unit:
@@ -38,7 +36,7 @@ Backup of pre-tune unit:
 | Field | Value |
 |---|---|
 | Exact name | MiaAI-Lab **Qwen3.6-35B-A3B** UD-Q8_K_XL (MoE ~35B-A3B) |
-| File | `$HOME/models/dgx_bundle/downloads/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf` (36G / 38451182560 bytes) |
+| File | `/home/coinupbtc/models/dgx_bundle/downloads/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf` (36G / 38451182560 bytes) |
 | Vision | `mmproj-BF16.gguf` (~862M) |
 | Quantization on disk | **UD-Q8_K_XL only** (no Q4/Q5 local) |
 | Context (server) | 131072 configured; train n_ctx 262144 |
@@ -144,7 +142,7 @@ Apply with:
 | Client hard tasks | `enable_thinking: true` + max_tokens ≥ 2048 |
 | Expected tokens/sec | **~35–37** |
 | Expected quality | **9/10** |
-| Use for | daily driver, coding, planning, local agents |
+| Use for | daily driver, coding, planning, Hermes agents |
 
 ### C. Max Quality 35B
 
@@ -196,7 +194,7 @@ Profile units live in `miaai35-tune/profiles/*.service`.
 | Recommended default | **BALANCED** |
 | When Max Speed | Interactive chat, short coding, when free memory needed for other GPU apps |
 | When Max Quality | Architecture / hard bugs / multi-step agent with CoT |
-| Remaining risk | Only Q8 quant on disk (Q4 not tested); concurrent ComfyUI/python GPU users; multi-slot agent under load can still contend; thinking-on burns tokens/time |
+| Remaining risk | Only Q8 quant on disk (Q4 not tested); concurrent ComfyUI/python GPU users; Hermes multi-slot under load can still contend; thinking-on burns tokens/time |
 
 ### Copy-paste: client speed vs quality
 
@@ -205,7 +203,7 @@ Profile units live in `miaai35-tune/profiles/*.service`.
 curl -s http://127.0.0.1:8889/v1/chat/completions \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+    "model": "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
     "messages": [{"role":"user","content":"Write a python hello world"}],
     "temperature": 0.4,
     "max_tokens": 512,
@@ -216,7 +214,7 @@ curl -s http://127.0.0.1:8889/v1/chat/completions \
 curl -s http://127.0.0.1:8889/v1/chat/completions \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+    "model": "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
     "messages": [{"role":"user","content":"Hard design question..."}],
     "temperature": 0.6,
     "max_tokens": 2048,
@@ -245,7 +243,7 @@ python3 stress_test.py
 The passes above optimized decode t/s and found it compute-bound. **Prompt processing was the
 untested lever**: BALANCED v1 ran llama.cpp defaults (`n_batch 2048 / n_ubatch 512`). Measured with
 `bench_pp.py` (server-side `timings`, 3 runs, medians) and `probe_concurrent.py` (small chat fired
-mid-PP of a ~14k prompt — the multi-agent metric). Clean-window (0 busy slots) numbers:
+mid-PP of a ~14k prompt — the Hermes multi-agent metric). Clean-window (0 busy slots) numbers:
 
 | Config | PP @6.4k tok | PP @14k tok | Solo decode | Concurrent TTFT / decode | VRAM |
 |---|---:|---:|---:|---:|---:|
@@ -268,11 +266,11 @@ Verification (format per spec):
 - Decision: **KEEP** (BALANCED v2 live 21:47; real inference verified)
 
 Notes: ub2048 rejected — +5% PP not worth 2× concurrent TTFT and −2 t/s solo decode. Ambient
-background/lane-scan load depresses PP ~27% (976 vs 1337 t/s) — never compare contended vs clean runs.
+Hermes/pokemon-arb load depresses PP ~27% (976 vs 1337 t/s) — never compare contended vs clean runs.
 
 ### PASS10–12: `--cache-reuse` — REJECTED (no-op on this build; measured, 3 configs)
 
-Hypothesis: agent repeat-calls with mid-prompt divergence could skip reprocessing unchanged KV
+Hypothesis: Hermes repeat-calls with mid-prompt divergence could skip reprocessing unchanged KV
 chunks. Probe: `probe_cache_reuse.py` (constant 2k head, changing status line, constant 7.5k tail,
 canary code word). Result: repeat TTFT == cold TTFT (~5.6–6.0s @ ~9.2k tok) in ALL of:
 - PASS10 `--cache-reuse 256` + KV q8_0
@@ -286,7 +284,7 @@ is a silent no-op on build a410713 (2026-07-05, unified KV cache) for this model
 
 **Transferable lesson (probe v1 failure):** llama-server slot matching needs LCP similarity > 0.10.
 A prompt whose FIRST tokens change every call (timestamp first) gets sim ≈ 0 → lands on an LRU slot
-→ zero cache benefit ever. Keep stable system preamble first, dynamic status later, in all agent
+→ zero cache benefit ever. Keep stable system preamble first, dynamic status later, in all Hermes
 prompts.
 
 ## 9. Addendum 2026-07-09 (v3): PASS13 ngram speculative decode — **KEPT → BALANCED v3**
@@ -342,8 +340,8 @@ re-measure if multi-agent feel degrades. Load time ~11–41 s. Old GGUF kept on 
 ## 11. Addendum 2026-07-10 (v5): spec-param tune + personalized rigorous eval — **BALANCED v5**
 
 New quality gate: `bench_v5.py` — 19 objective checks built from the user's REAL workload
-(Telegram queries + scheduled agent prompts): digest faithfulness, 3 hallucination/confusion traps
-(incl. the logged lane-scan cross-attribution complaint), completeness enumeration,
+(Telegram queries + Hermes cron prompts): digest faithfulness, 3 hallucination/confusion traps
+(incl. the logged pokemon-arb cross-attribution complaint), completeness enumeration,
 Telegram-brief format compliance, 3 coding tasks EXECUTED against unit tests, 3 exact-answer
 reasoning problems, OpenAI tool-call validity. No vibes scoring; every check machine-graded.
 (3 early "failures" were grader bugs — the model was right each time; graders fixed.)
@@ -399,7 +397,7 @@ failure modes** (one token-budget truncation, one identical interpretation of an
 phrasing). No quality separation detectable at this eval's resolution.
 
 **Ops trade-offs:** Q8 v5 loads in ~11 s (vLLM ~5.5 min first boot with JIT), has vision (mmproj),
-128k ctx, systemd auto-heal, and agents fully wired. NVFP4 uses the Blackwell FP4 units, ~26.5 GB
+128k ctx, systemd auto-heal, and Hermes fully wired. NVFP4 uses the Blackwell FP4 units, ~26.5 GB
 weights (vs 38.4), text-only here, and the stock launcher path KILLS llama-server (use the manual
 command in this section to run side-by-side). Both-resident = ~100/121 GB.
 
@@ -577,30 +575,3 @@ by PORT (`pkill -f "[l]lama-server.*--port 8890"`), never by model path.**
 | `hard6.py` | 6-item hard-reasoning tiebreaker (thinking ON, ANSWER-line graded, 12k+ budget) |
 | `launch-master-8890.sh` / `launch-nvfp4-gguf-8890.sh` | side-by-side test-server launchers (:8890) |
 | `profiles/BALANCED_V7_NVFP4.service` | staged v7 unit (NVFP4 GGUF), awaiting approval |
-
-## v9 (2026-07-18) — engine rebuild on master 86a9c79
-Same weights (nvidia NVFP4 GGUF) + same v8 flags; only the engine moved: 13f2b28 → 86a9c79
-(93 commits; relevant: CUDA MoE gate/up activation dedup #25441). Built in ~/llama.cpp-v9
-(git worktree — KEEP; llama.cpp-master v6 build untouched as revert).
-bench_miaai35 same-night A/B (thinking off, zwell-extractor co-resident both runs):
-short 71.4→79.3 (+11%), coding 77.4→80.0 (+3.3%), reasoning 84.8→89.4 (+5.5%),
-long-ctx TTFT 6.24→4.87s (−22%); long-ctx tg 64.4 was cold-alloc noise (warm reruns 83.9/87.1).
-Quality gate bench_v5 19/19 score 100 (D_brief 3/3 — no v4-style template regression).
-Unit: .bak-2026-07-18-v8 = v8 revert. v10 candidates: spec-type sweep ngram-map-k/k4v/
-ngram-cache; draft-dflash/eagle3 need sidecar models.
-
-## v10 campaign (2026-07-18) — RESULT: flag space exhausted, config stays v9
-Tested on the v9 engine (86a9c79), all 3-4 rep alternating A/B, novel-content probes:
-- DFlash draft sidecar (z-lab 0.4B, block16, Alittlehammmer BF16 GGUF, 783M at
-  ~/models/dgx_bundle/qwen-dflash/ — KEPT on disk): coding median 105.1 (n8 p0.3 tuned)
-  vs MTP 103.8 (n10 p0.5) / 98.2 (prod n6 p0.75) = EQUAL WITHIN NOISE, +0.8G RAM.
-  z-lab's "beats MTP 3.61x" numbers do NOT transfer to GB10 UMA (matches the Strix Halo
-  field report: UMA is memory-bound; a dense drafter's forward cost eats the block win).
-- n_max 6 vs 16: refactor NULL (476.0 vs 471.4 warm; earlier +8-12% was WARM-TABLE noise —
-  ngram tables persist per server lifetime, alternate A/B on the SAME server state or lie).
-  Coding NULL (98.6 vs 100.0 median over 4 alternating reps).
-- p_min 0.75 vs 0.5: coding +5.7% = within +-30% single-run noise. Not shippable.
-- ngram-map-k/k4v/cache NOT tested by decision: warm refactor already saturates at
-  470-477 t/s with 100% draft acceptance — no headroom for a different echo drafter.
-Remaining levers for v11: next engine rebuild when master moves (proven twice: v6, v9);
-eagle3 sidecar if one appears for 35B-A3B (none exists as of 2026-07-18).

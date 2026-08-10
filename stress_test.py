@@ -12,7 +12,7 @@ import bench_miaai35 as B
 
 BASE = "http://127.0.0.1:8889"
 MODEL = B.MODEL_PATH
-OUT = Path("$HOME/models/dgx_bundle/miaai35-tune/results")
+OUT = Path("/home/coinupbtc/models/dgx_bundle/miaai35-tune/results")
 
 
 def one(prompt: str, max_tokens: int, tag: str, think: bool) -> dict:

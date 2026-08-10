@@ -10,7 +10,7 @@ import argparse, json, statistics, time, urllib.request, datetime, pathlib, subp
 
 import os
 BASE = os.environ.get("MIA_BASE", "http://127.0.0.1:8889")
-MODEL = "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf"
+MODEL = "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf"
 
 # Deterministic natural-text filler (~1.3 tok/word) that varies per salt so the
 # KV prefix cache cannot serve repeat runs.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Multi-agent starvation probe: while a large prompt (~14k tok) is being
 prompt-processed in one slot, measure TTFT and decode t/s of a small chat in
-another slot. This is the metric that matters for multi-agent feel.
+another slot. This is the metric that matters for Hermes multi-agent feel.
 
 Usage: python3 probe_concurrent.py --tag ub2048 [--runs 3]
 """

@@ -20,7 +20,7 @@ from typing import Any
 
 DEFAULT_BASE = "http://127.0.0.1:8889"
 MODEL_PATH = (
-    "$HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/"
+    "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/"
     "Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf"
 )
 
@@ -528,7 +528,7 @@ def main() -> None:
     ap.add_argument("--tag", default="baseline")
     ap.add_argument(
         "--out-dir",
-        default="$HOME/models/dgx_bundle/miaai35-tune/results",
+        default="/home/coinupbtc/models/dgx_bundle/miaai35-tune/results",
     )
     ap.add_argument(
         "--thinking",

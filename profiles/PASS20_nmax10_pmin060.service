@@ -1,6 +1,6 @@
 [Unit]
 Description=MiaAI 35B PASS20_nmax10_pmin060 (spec n-max 10 p-min 0.6)
-Documentation=file://$HOME/models/dgx_bundle/miaai35-tune/REPORT.md
+Documentation=file:///home/coinupbtc/models/dgx_bundle/miaai35-tune/REPORT.md
 After=network-online.target
 Wants=network-online.target
 StartLimitIntervalSec=600
@@ -10,12 +10,12 @@ OnFailure=llama-miaai35-alert.service
 [Service]
 Type=exec
 # ORIGINAL recipe + flash-attn + quantized KV. Keeps 131072 ctx and default
-# parallel slots for multi-agent. Measured PASS3: quality 9/10,
+# parallel slots for Hermes multi-agent. Measured PASS3: quality 9/10,
 # ~same decode t/s as ORIGINAL, ~1 GB less GPU footprint.
 # Client daily: enable_thinking=false; hard tasks: enable_thinking=true.
-ExecStart=$HOME/llama.cpp/build/bin/llama-server \
-  --model $HOME/models/dgx_bundle/downloads/mtp/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
-  --mmproj $HOME/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
+ExecStart=/home/coinupbtc/llama.cpp/build/bin/llama-server \
+  --model /home/coinupbtc/models/dgx_bundle/downloads/mtp/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --mmproj /home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
   --ctx-size 131072 \
   --flash-attn on \
   --cache-type-k q8_0 \

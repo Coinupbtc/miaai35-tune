@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """v5 rigorous personalized eval for llama-miaai35 (:8889).
 
-Built from a realistic local-ops workload (agent sessions + cron-style digests):
+Built from coinupbtc's REAL workload (Telegram sessions + Hermes cron prompts):
   A. ops-digest QA — faithfulness to injected context (exact match)
   B. hallucination trap — must acknowledge absent info, not invent status
   C. completeness enumeration — recall AND precision over failing items
@@ -22,11 +22,11 @@ BASE = os.environ.get("MIA_BASE", "http://127.0.0.1:8889")
 
 DIGEST = """DGX DAILY DIGEST 2026-07-10 06:00
 services: llama-miaai35 active | comfyui active | vllm-nvfp4 inactive (by design) |
-stl-sandbox active | agent-gateway-main active | agent-gateway-light FAILED (exit 2, 05:41) |
+stl-sandbox active | hermes-gateway-orchestrator active | hermes-gateway-light FAILED (exit 2, 05:41) |
 ollama active
-backups: restic OK 03:12 | backup-mirror FAILED 04:20 (ssh timeout) | edge-node DEGRADED (bridge down)
+backups: restic OK 03:12 | pi-mirror FAILED 04:20 (ssh timeout) | start9 DEGRADED (bridge down)
 resources: disk 21% used | RAM 61/121 GB | swap 1/15 GB
-trading: paper-book 3 positions open, cycle OK 04:00 | lane-scan scan OK, 42 matches, 2 flagged for review
+trading: crypto-machine 3 positions open, cycle OK 04:00 | pokemon-arb scan OK, 42 matches, 2 flagged for review
 cron: sleep-research-scanner exit 2 at 05:00 | vault-lint OK 09:00 (prev day)"""
 
 def chat(messages, max_tokens=700, thinking=False, tools=None, temperature=0.1):
@@ -89,8 +89,8 @@ def main():
     # --- A. faithfulness QA (exact answers from digest) ---
     qa = [
         ("Which gateway service failed?", lambda s: "light" in s.lower()),
-        ("At what time (HH:MM) did the backup-mirror backup fail?", lambda s: "04:20" in s),
-        ("How many lane-scan matches are flagged for review?",
+        ("At what time (HH:MM) did the pi-mirror backup fail?", lambda s: "04:20" in s),
+        ("How many pokemon-arb matches are flagged for review?",
          lambda s: re.search(r"\b(2|two)\b", s.lower()) and not re.search(r"\b42 flagged", s)),
         ("What is the swap usage in GB?", lambda s: bool(re.search(r"(^|[^0-9.])1\s*(gb|gib|/\s*15|of\s*15|out of\s*15)", s.lower()))),
     ]
@@ -112,9 +112,9 @@ def main():
     check("absent-service", "B_trap", admits_absence and not invents, r["content"][:100])
 
     # trap 2: cross-attribution confusion (mirrors real logged complaint:
-    # user had to correct an agent that mixed up lane-scan with another system)
+    # user had to correct an agent that mixed up pokemon-arb with another system)
     r = chat([{"role": "system", "content": "Answer strictly from the provided digest. Be concise."},
-              {"role": "user", "content": DIGEST + "\n\nQuestion: How many open trading positions does lane-scan currently have?"}],
+              {"role": "user", "content": DIGEST + "\n\nQuestion: How many open trading positions does pokemon-arb currently have?"}],
              150, think)
     record("B_trap", r)
     s = r["content"].lower()
@@ -138,8 +138,8 @@ def main():
              250, think)
     record("C_enumeration", r)
     s = r["content"].lower()
-    expected = {"gateway-light": "light" in s, "backup-mirror": "backup-mirror" in s or "backup mirror" in s,
-                "edge-node": "edge-node" in s, "sleep-research": "sleep-research" in s or "sleep research" in s}
+    expected = {"gateway-light": "light" in s, "pi-mirror": "pi-mirror" in s or "pi mirror" in s,
+                "start9": "start9" in s, "sleep-research": "sleep-research" in s or "sleep research" in s}
     false_pos = [w for w in ["llama-miaai35", "comfyui", "restic", "vault-lint", "stl-sandbox", "ollama"]
                  if re.search(rf"^[^a-z]*{re.escape(w)}", s, re.M)]
     recall = sum(expected.values())
@@ -154,7 +154,7 @@ def main():
     bullets = [l for l in lines if l.strip().startswith(("-", "•", "*"))]
     check("max-14-lines", "D_brief", 0 < len(lines) <= 14, f"{len(lines)} lines")
     check("all-bullets", "D_brief", len(bullets) == len(lines), f"{len(bullets)}/{len(lines)} bulleted")
-    check("mentions-failures", "D_brief", "light" in r["content"].lower() and "backup-mirror" in r["content"].lower(),
+    check("mentions-failures", "D_brief", "light" in r["content"].lower() and "pi-mirror" in r["content"].lower(),
           "brief must surface the two failures")
 
     # --- E. coding, EXECUTED ---

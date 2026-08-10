@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cache-reuse probe: agent-style repeat call where the prompt HEADER changes
+"""Cache-reuse probe: Hermes-style repeat call where the prompt HEADER changes
 (timestamp/code word) but the large body is identical. Without --cache-reuse the
 whole prompt reprocesses from the first changed token; with it, unchanged KV
 chunks shift. Measures repeat-call TTFT and checks a canary fact so reused KV
@@ -11,7 +11,7 @@ import argparse, statistics
 from bench_pp import make_prompt, chat
 
 def build(salt: str, code: str, head: str, tail: str) -> str:
-    # agent-shaped: constant system header (slot LCP match), small CHANGING
+    # Hermes-shaped: constant system header (slot LCP match), small CHANGING
     # status block mid-prompt, large constant tail after it (reuse candidate).
     return (
         f"You are an operations assistant. Fixed policy preamble follows.\n{head}\n"
