@@ -5,9 +5,9 @@
 # SPEC_TYPE overridable: full stack default; use "ngram-simple" if the GGUF lacks MTP layers.
 set -euo pipefail
 
-BIN=/home/coinupbtc/llama.cpp-master/build/bin/llama-server
-MODEL=/home/coinupbtc/models/dgx_bundle/qwen-nvfp4-gguf/q36-35b-a3b-nvfp4.gguf
-LOG=/home/coinupbtc/models/dgx_bundle/miaai35-tune/results/nvfp4-gguf-8890.log
+BIN="$HOME/llama.cpp-master/build/bin/llama-server"
+MODEL="$HOME/models/dgx_bundle/qwen-nvfp4-gguf/q36-35b-a3b-nvfp4.gguf"
+LOG="$HOME/models/dgx_bundle/miaai35-tune/results/nvfp4-gguf-8890.log"
 SPEC_TYPE="${SPEC_TYPE:-draft-mtp,ngram-simple}"
 
 avail=$(free -g | awk '/^Mem:/{print $7}')

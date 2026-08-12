@@ -9,8 +9,8 @@ OnFailure=llama-miaai35-alert.service
 
 [Service]
 Type=exec
-ExecStart=/home/coinupbtc/llama.cpp/build/bin/llama-server \
-  --model /home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+ExecStart=%h/llama.cpp/build/bin/llama-server \
+  --model %h/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
   --ctx-size 131072 \
   --flash-attn on \
   --host 0.0.0.0 \

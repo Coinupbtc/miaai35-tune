@@ -1,6 +1,6 @@
 [Unit]
 Description=MiaAI-Lab Qwen3.6-35B Q8 SOLO (same weights; 1 slot max single-stream t/s)
-Documentation=file:///home/coinupbtc/models/dgx_bundle/miaai35-tune/REPORT.md
+Documentation=file://%h/models/dgx_bundle/miaai35-tune/REPORT.md
 After=network-online.target
 Wants=network-online.target
 StartLimitIntervalSec=600
@@ -10,9 +10,9 @@ OnFailure=llama-miaai35-alert.service
 [Service]
 Type=exec
 # SAME Q8 GGUF. Single slot — best interactive decode when Hermes is not multi-firing.
-ExecStart=/home/coinupbtc/llama.cpp/build/bin/llama-server \
-  --model /home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
-  --mmproj /home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
+ExecStart=%h/llama.cpp/build/bin/llama-server \
+  --model %h/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf \
+  --mmproj %h/models/dgx_bundle/qwen3.6-35b-a3b-ud/mmproj-BF16.gguf \
   --ctx-size 131072 \
   --parallel 1 \
   --flash-attn on \

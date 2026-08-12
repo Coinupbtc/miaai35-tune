@@ -7,9 +7,9 @@
 ## Revert to original (always available)
 
 ```bash
-/home/coinupbtc/models/dgx_bundle/miaai35-tune/revert-original.sh
+~/models/dgx_bundle/miaai35-tune/revert-original.sh
 # or:
-/home/coinupbtc/models/dgx_bundle/miaai35-tune/apply-profile.sh ORIGINAL
+~/models/dgx_bundle/miaai35-tune/apply-profile.sh ORIGINAL
 ```
 
 Backup of pre-tune unit:
@@ -36,7 +36,7 @@ Backup of pre-tune unit:
 | Field | Value |
 |---|---|
 | Exact name | MiaAI-Lab **Qwen3.6-35B-A3B** UD-Q8_K_XL (MoE ~35B-A3B) |
-| File | `/home/coinupbtc/models/dgx_bundle/downloads/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf` (36G / 38451182560 bytes) |
+| File | `~/models/dgx_bundle/downloads/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf` (36G / 38451182560 bytes) |
 | Vision | `mmproj-BF16.gguf` (~862M) |
 | Quantization on disk | **UD-Q8_K_XL only** (no Q4/Q5 local) |
 | Context (server) | 131072 configured; train n_ctx 262144 |
@@ -203,7 +203,7 @@ Profile units live in `miaai35-tune/profiles/*.service`.
 curl -s http://127.0.0.1:8889/v1/chat/completions \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+    "model": "~/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
     "messages": [{"role":"user","content":"Write a python hello world"}],
     "temperature": 0.4,
     "max_tokens": 512,
@@ -214,7 +214,7 @@ curl -s http://127.0.0.1:8889/v1/chat/completions \
 curl -s http://127.0.0.1:8889/v1/chat/completions \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "/home/coinupbtc/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
+    "model": "~/models/dgx_bundle/qwen3.6-35b-a3b-ud/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf",
     "messages": [{"role":"user","content":"Hard design question..."}],
     "temperature": 0.6,
     "max_tokens": 2048,
