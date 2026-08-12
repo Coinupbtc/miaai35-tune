@@ -34,7 +34,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 ### Just read the results
-Open [`REPORT.md`](REPORT.md) — headline numbers below need no GPU.
+Start with [`RESULTS.md`](RESULTS.md) (one-screen table). Full method and run log: [`REPORT.md`](REPORT.md).
 
 ## Headline numbers (thinking off)
 
