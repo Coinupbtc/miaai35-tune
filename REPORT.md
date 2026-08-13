@@ -1,7 +1,7 @@
 # MiaAI-Lab Qwen3.6-35B — Measured Tune Report
 
 **Date:** 2026-07-09  
-**Host:** sparkmax-10ef (DGX Spark GB10, aarch64, Ubuntu 24.04)  
+**Host:** NVIDIA DGX Spark (GB10, aarch64, Ubuntu 24.04)  
 **Rule:** numbers below were measured; no estimates.
 
 ## Revert to original (always available)

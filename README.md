@@ -2,9 +2,6 @@
 
 ![Screenshot](docs/screenshots/hero.png)
 
-
-
-
 Measured **llama.cpp** tune for **Qwen3.6-35B-A3B** on NVIDIA DGX Spark.
 
 Not a from-scratch train — a flag/profile bakeoff with real tok/s, TTFT, quality, and VRAM numbers.
