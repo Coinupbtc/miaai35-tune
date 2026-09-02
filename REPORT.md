@@ -4,20 +4,11 @@
 **Host:** NVIDIA DGX Spark (GB10, aarch64, Ubuntu 24.04)  
 **Rule:** numbers below were measured; no estimates.
 
-### Throughput source of truth
+### Throughput — this file is the lab log, not the public hero
 
-**Primary metric (the only number to quote as “the” tok/s): 35.80 tok/s** coding decode.
+**Public source of truth:** [`RESULTS.md`](RESULTS.md) (mirrored in [`README.md`](README.md)).
 
-| | |
-|---|---|
-| What | Coding-prompt decode = generated tokens / generation time (not prefill) |
-| Conditions | ORIGINAL profile, thinking **off**, clean restart, UD-Q8_K_XL, no speculative decode |
-| File | [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json) |
-| Field | `tests[test=coding].tokens_per_sec` = `35.8` (llama.cpp `timings.predicted_per_second` = 35.8028…) |
-
-Same-file suite (not the headline): short 38.23 / reasoning 35.29 / long 35.45 tok/s.
-
-**Do not headline 169 t/s.** That figure is a §16 live exclusive note. No committed `results/*.json` contains 169 or 169.4. Highest *sourced* coding decode in this repo is **68.69 tok/s** under MTP + ngram ([`results/bench-pass18-speed-20260710-084244.json`](results/bench-pass18-speed-20260710-084244.json)) — different conditions; secondary only. Visitor-facing tables: [`RESULTS.md`](RESULTS.md).
+Homepage / profile copy **35.80 tok/s** from [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json) (`results[]` `"test": "coding"` → `tokens_per_sec` = `35.8`). Same-file band 35.29–38.23 tok/s (**~35–38**). **Do not headline 169 t/s** (not in committed JSON; §16 notebook only).
 
 ## Revert to original (always available)
 
