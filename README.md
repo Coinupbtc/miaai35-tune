@@ -35,20 +35,28 @@ Start with [`RESULTS.md`](RESULTS.md) (one-screen table). Full method and run lo
 
 ## Headline numbers (thinking off)
 
-| Metric | Measured |
-|--------|----------|
-| Sustained decode | ~35–38 tok/s |
-| Coding suite | ~9/10 quality |
-| Short TTFT | ~0.25–0.5 s |
-| Long TTFT (~9.5k tok) | ~7–8 s |
-| VRAM (BALANCED) | ~39.5 GB |
+**Primary decode metric: 35.80 tok/s** (coding, generated tokens / generation time).
+
+Source: [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json) — `tests[coding].tokens_per_sec` = `35.8` (llama.cpp `timings.predicted_per_second` = 35.80). Conditions: ORIGINAL profile, thinking off, clean restart, UD-Q8_K_XL, no speculative decode.
+
+| Metric | Measured | Source |
+|--------|----------|--------|
+| **Primary — coding decode** | **35.80 tok/s** | file above |
+| Same-run suite (short / reason / long) | 38.23 / 35.29 / 35.45 tok/s | same file |
+| Coding suite | 9/10 quality | same file |
+| Short TTFT | 0.26 s coding / 0.41 s short | same file |
+| Long TTFT (~9.5k tok) | 7.56 s | same file |
+| VRAM (BALANCED) | 39510 MiB | [`results/bench-balanced-final-think-off-20260709-204018.json`](results/bench-balanced-final-think-off-20260709-204018.json) |
 
 Biggest interactive win: client `enable_thinking=false`.
+
+Do not treat **169 t/s** as a repo headline — that figure is not in committed JSON (see [`RESULTS.md`](RESULTS.md)).
 
 ## Layout
 
 | Path | What |
 |------|------|
+| `RESULTS.md` | One-screen numbers with JSON source paths |
 | `REPORT.md` | Full measured report |
 | `profiles/` | llama-server profiles (BALANCED, MAX_SPEED, …) |
 | `bench_*.py` / `stress_test.py` | Harnesses |

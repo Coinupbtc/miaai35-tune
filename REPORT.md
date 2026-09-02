@@ -4,6 +4,21 @@
 **Host:** NVIDIA DGX Spark (GB10, aarch64, Ubuntu 24.04)  
 **Rule:** numbers below were measured; no estimates.
 
+### Throughput source of truth
+
+**Primary metric (the only number to quote as “the” tok/s): 35.80 tok/s** coding decode.
+
+| | |
+|---|---|
+| What | Coding-prompt decode = generated tokens / generation time (not prefill) |
+| Conditions | ORIGINAL profile, thinking **off**, clean restart, UD-Q8_K_XL, no speculative decode |
+| File | [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json) |
+| Field | `tests[test=coding].tokens_per_sec` = `35.8` (llama.cpp `timings.predicted_per_second` = 35.8028…) |
+
+Same-file suite (not the headline): short 38.23 / reasoning 35.29 / long 35.45 tok/s.
+
+**Do not headline 169 t/s.** That figure is a §16 live exclusive note. No committed `results/*.json` contains 169 or 169.4. Highest *sourced* coding decode in this repo is **68.69 tok/s** under MTP + ngram ([`results/bench-pass18-speed-20260710-084244.json`](results/bench-pass18-speed-20260710-084244.json)) — different conditions; secondary only. Visitor-facing tables: [`RESULTS.md`](RESULTS.md).
+
 ## Revert to original (always available)
 
 ```bash
@@ -53,7 +68,9 @@ Backup of pre-tune unit:
 ## 3. Baseline (clean ORIGINAL after restart, think-off)
 
 Canonical baseline tag: `original-rerun-think-off`  
-(First warm “baseline-think-off” hit ~42–44 t/s; after clean restart, sustained decode sits ~35–38 t/s. **Use clean numbers.**)
+JSON: [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json)  
+**Primary speed metric = coding 35.80 t/s** from that file. Same-run suite is 35.29–38.23 t/s (reason–short).  
+(First warm `baseline-think-off` hit 42.80 coding / 44.39 short t/s in [`results/bench-baseline-think-off-20260709-202553.json`](results/bench-baseline-think-off-20260709-202553.json); after clean restart, use the 35.80 primary. **Use clean numbers.**)
 
 | Test | Tokens/sec | TTFT | Total time | VRAM | RAM | GPU use | CPU use | Quality | Stability |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---|
@@ -77,7 +94,7 @@ Decode slows as the thinking context grows; total time is dominated by CoT token
 
 ## 4. Optimization passes (coding t/s = primary speed metric)
 
-Baseline coding = **35.80 t/s**, quality **9/10**.
+Baseline coding = **35.80 t/s**, quality **9/10** ([`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json)).
 
 | Change | t/s before | t/s after | % speed | Q before | Q after | Keep or revert |
 |---|---:|---:|---:|---:|---:|---|
@@ -89,7 +106,7 @@ Baseline coding = **35.80 t/s**, quality **9/10**.
 | maxspeed stack (32k/p1/kv-q8/no-mmproj) | 35.80 | 35.28 | −1.5% | 9 | 9 | **keep as Max Speed profile** (memory + long TTFT) |
 | Client `enable_thinking=false` | wall-clock 13–98s → 0.7–15s | n/a | **huge wall-clock** | 9 | 9 | **keep for daily use** |
 
-**Decision rule outcome:** No server flag delivered ≥10% decode-token speedup on this Q8 MoE + GB10 path. Decode is compute/bandwidth bound ~35–38 t/s. Real wins: **memory headroom**, **long-prompt TTFT**, and especially **disabling thinking for interactive use**.
+**Decision rule outcome:** No server flag delivered ≥10% decode-token speedup on this Q8 MoE + GB10 path. Decode is compute/bandwidth bound at the **35.80 t/s** primary (suite 35.29–38.23 on the same JSON). Real wins: **memory headroom**, **long-prompt TTFT**, and especially **disabling thinking for interactive use**.
 
 ---
 
@@ -121,7 +138,7 @@ Apply with:
 | mmproj | **off** (text only) |
 | Keep-alive | systemd always-on |
 | Client | `chat_template_kwargs: {"enable_thinking": false}` |
-| Expected tokens/sec | **~35–38** sustained decode |
+| Expected tokens/sec | **35.80** primary coding decode (same-run suite 35.29–38.23); see source-of-truth box |
 | Expected quality | **≥9/10** on suite (measured 9) |
 | Use for | quick answers, short coding, summaries |
 
@@ -140,7 +157,7 @@ Apply with:
 | GPU footprint | **~39510 MiB** measured |
 | Client daily | `enable_thinking: false` |
 | Client hard tasks | `enable_thinking: true` + max_tokens ≥ 2048 |
-| Expected tokens/sec | **~35–37** |
+| Expected tokens/sec | **35.09** coding in [`results/bench-balanced-final-think-off-20260709-204018.json`](results/bench-balanced-final-think-off-20260709-204018.json) (not the 35.80 ORIGINAL primary) |
 | Expected quality | **9/10** |
 | Use for | daily driver, coding, planning, Hermes agents |
 
@@ -169,7 +186,7 @@ Profile units live in `miaai35-tune/profiles/*.service`.
 | Metric | Measured |
 |---|---|
 | Errors | **0** |
-| Sustained t/s (coding/reason/long/agent) | **~35–38** |
+| Sustained t/s (coding/reason/long/agent) | **35.80 primary** (suite 35.29–38.23 on the canonical JSON) |
 | Tiny-gen spikes | up to 79 t/s (unreliable; few tokens) |
 | VRAM delta start→end | **+36 MiB** (no leak signal) |
 | Unload / crash / timeout | **none** |
@@ -184,9 +201,9 @@ Profile units live in `miaai35-tune/profiles/*.service`.
 | Best Max Speed profile | `MAX_SPEED` + client thinking **off** |
 | Best Balanced profile | `BALANCED` (fa + KV q8 + 128k + mmproj) — **live now** |
 | Best Max Quality profile | `MAX_QUALITY` / `ORIGINAL` + client thinking **on** |
-| Fastest measured sustained decode | **~38–40 t/s** short/clean; coding **~35–37 t/s** |
+| Fastest measured sustained decode (canonical JSON) | short **38.23 t/s**; coding **35.80 t/s** ([`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json)) |
 | Best quality score | **9/10** (suite ceiling with current checks) |
-| Best speed/quality tradeoff | **BALANCED + thinking off** (~35 t/s @ 9/10) |
+| Best speed/quality tradeoff | **BALANCED + thinking off** (coding **35.09 t/s** @ 9/10 in [`results/bench-balanced-final-think-off-20260709-204018.json`](results/bench-balanced-final-think-off-20260709-204018.json)) |
 | Main bottleneck | **Decode compute on Q8 MoE weights** (~28 ms/token); not KV alone |
 | Biggest speed improvement | **Client `enable_thinking=false`** (wall-clock, not raw t/s) |
 | Quality loss | **None measured** on kept settings (all ≥9/10) |
@@ -520,20 +537,29 @@ parity result for this family).
 
 ## 16. Addendum 2026-07-11 (v8 campaign): options 5,1,2,3 — one big win, two closures, one split verdict
 
+**Honesty note:** the v8 live t/s figures in this addendum (122 / 156.4 / **169.4**) were not
+written into committed `results/*.json`. They are campaign notebook, **not** the repo primary.
+Quote **35.80 tok/s** from [`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json).
+
 **Option 1 — spec re-screen on NVFP4: MAJOR WIN, staged as BALANCED_V8_NGRAMMOD.**
 Master offers new ngram types (ngram-mod, ngram-map-k4v, ngram-cache, draft-dflash). Findings:
 - `draft-mtp,ngram-mod` → coding 122 t/s (+63% vs same-day baseline 74.9) but refactor −16%.
 - **Order matters in the spec list**: `draft-mtp,ngram-simple,ngram-mod` reverts to baseline
   (ngram-simple shadows mod), but **`draft-mtp,ngram-mod,ngram-simple` keeps both wins**.
 - Deeper drafts (n8/p0.70) plateau — kept n6/p0.75.
-- Clean confirm (exclusive-ish, runs 3): **coding 156.4 t/s (+98% vs live v7 78.9), refactor
-  248.2 (+14%)**, essay/short par (contended), ctx8k 51.7. **bench_v5 19/19.**
+- Clean confirm (exclusive-ish, runs 3): written here as coding 156.4 t/s / refactor 248.2 —
+  **not in committed `results/*.json`**. Treat as a campaign notebook, not a headline.
 - Staged: `profiles/BALANCED_V8_NGRAMMOD.service` (one-word change); v7 unit backed up as
   `backups/BALANCED.service.v7-specsimple-2026-07-11`.
-- **DEPLOYED 2026-07-11 ~16:55 (user approved).** Live exclusive confirm: **coding 169.4 t/s,
-  refactor 264.2**, essay 50.6, ctx8k 50.8 / TTFT 3.20s. Telegram end-to-end verified: 3/3
-  gateways up + Daily News Digest agent cron triggered manually → ran on v8, delivered ok
-  (16:57:38). Full arc v1→v8: coding 35.8 → 169.4 t/s (**4.7×**), refactor 34 → 264 (**7.8×**).
+- **DEPLOYED 2026-07-11 ~16:55 (user approved).** Live exclusive confirm was written here as
+  coding 169.4 t/s / refactor 264.2 / essay 50.6 / ctx8k 50.8. **Demoted: no committed
+  `results/*.json` contains 169 or 169.4.** Do not quote 169 as this repo’s measured
+  throughput. Primary remains **35.80 tok/s**
+  ([`results/bench-original-rerun-think-off-20260709-203311.json`](results/bench-original-rerun-think-off-20260709-203311.json)).
+  Highest sourced coding decode is **68.69 tok/s**
+  ([`results/bench-pass18-speed-20260710-084244.json`](results/bench-pass18-speed-20260710-084244.json)).
+  Telegram end-to-end verified: 3/3 gateways up + Daily News Digest agent cron triggered
+  manually → ran on v8, delivered ok (16:57:38).
 
 **Option 2 — ub2048: REJECTED AGAIN.** Concurrency probe (5 runs): small-chat 2.16s TTFT /
 17.4 t/s during big PP (ub1024 healthy: 0.9s / 46.6). NVFP4's faster prefill shrank but did not
