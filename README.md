@@ -12,7 +12,7 @@ Not a from-scratch train — a flag/profile bakeoff with real tok/s, TTFT, quali
 |---|---|
 | **What it is** | A measured **llama.cpp** flag/profile bakeoff for **Qwen3.6-35B-A3B** on NVIDIA DGX Spark — benches, profiles, and a written report with real tok/s / TTFT / quality / VRAM numbers. |
 | **What it’s for** | So you can pick serving settings with **evidence**, not vibes — and reproduce (or challenge) the numbers we got on Spark unified memory. |
-| **How to use it** | Read [`REPORT.md`](REPORT.md) with no GPU, or `./setup.sh` then point `bench_v5.py` at any OpenAI-compatible `llama-server`. Weights stay local. For a known-good Spark serve path, see [MiaAI Labs’ Qwen3.6-35B recipe](https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe). |
+| **How to use it** | Read [`RESULTS.md`](RESULTS.md) for the number, or [`REPORT.md`](REPORT.md) for the method. Or `./setup.sh` then point `bench_v5.py` at any OpenAI-compatible `llama-server`. Weights stay local. For a known-good Spark serve path, see [MiaAI Labs’ Qwen3.6-35B recipe](https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe). |
 
 ## Try it (pick one)
 
@@ -31,19 +31,15 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 ### Just read the results
-Start with [`RESULTS.md`](RESULTS.md) (one-screen table). Full method and run log: [`REPORT.md`](REPORT.md).
+Start with [`RESULTS.md`](RESULTS.md). Full method and run log: [`REPORT.md`](REPORT.md).
 
-## Headline numbers (thinking off)
+## Headline
 
-| Metric | Measured |
-|--------|----------|
-| Sustained decode | ~35–38 tok/s |
-| Coding suite | ~9/10 quality |
-| Short TTFT | ~0.25–0.5 s |
-| Long TTFT (~9.5k tok) | ~7–8 s |
-| VRAM (BALANCED) | ~39.5 GB |
+**35.80 tok/s** coding decode, 9 July 2026. Thinking off, clean restart, speculative decode off. The file path and the conditions are in [`RESULTS.md`](RESULTS.md#primary-coding-decode-9-july-2026).
 
-Biggest interactive win: client `enable_thinking=false`.
+The same run sits in a **~35–38 tok/s** band (short 38.23, reasoning 35.29, long 35.45), coding quality 9/10.
+
+A later note in the report says coding **169.4 t/s** on 11 July 2026. That line has no saved bench file in this repo. Do not quote it as the measured number. The fastest coding decode that does have a saved file is **68.69 tok/s** (10 July 2026, speculative decode on).
 
 ## Layout
 
